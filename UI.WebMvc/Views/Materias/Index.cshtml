@@ -1,0 +1,57 @@
+﻿@model IEnumerable<UI.WebMvc.Models.MateriaModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Nuevo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDPlan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HSSemanales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HSTotales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescripcionPlan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDPlan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HSSemanales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HSTotales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescripcionPlan)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
