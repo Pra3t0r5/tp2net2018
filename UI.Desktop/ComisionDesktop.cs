@@ -87,6 +87,11 @@ namespace UI.Desktop
             if (Modo == ModoForm.Modificacion)
             {
                 ComisionActual.ID = Convert.ToInt32(this.txtID.Text);
+                this.txtID.ReadOnly = true;
+            }
+            else if (Modo == ModoForm.Alta)
+            {
+                this.txtID.ReadOnly = true;
             }
 
             switch (Modo)

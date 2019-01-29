@@ -57,6 +57,10 @@ namespace UI.Desktop
             this.cmbMaterias.SelectedValue = this.CursoActual.IDMateria;
             this.cmbComision.SelectedText = this.CursoActual.DescripcionComision;
             this.cmbComision.SelectedValue = this.CursoActual.IDComision;
+            this.nmdAnio.Value = this.CursoActual.AnioCalendario;
+            this.nmdCupo.Value = this.CursoActual.Cupo;
+
+
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -91,6 +95,10 @@ namespace UI.Desktop
             if(Modo == ModoForm.Modificacion)
             {
                 CursoActual.ID = Convert.ToInt32(txtId.Text);
+            }
+            else if (Modo == ModoForm.Alta)
+            {
+                this.txtId.ReadOnly = true;
             }
 
             switch (Modo)

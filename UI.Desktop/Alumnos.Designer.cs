@@ -218,7 +218,7 @@
             this.tsEliminar});
             this.tsAlumnos.Location = new System.Drawing.Point(3, 0);
             this.tsAlumnos.Name = "tsAlumnos";
-            this.tsAlumnos.Size = new System.Drawing.Size(81, 25);
+            this.tsAlumnos.Size = new System.Drawing.Size(112, 25);
             this.tsAlumnos.TabIndex = 0;
             // 
             // tsNuevo

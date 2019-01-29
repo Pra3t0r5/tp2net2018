@@ -48,7 +48,7 @@
             this.tlpComision.ColumnCount = 3;
             this.tlpComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.84211F));
             this.tlpComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.15789F));
-            this.tlpComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
+            this.tlpComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this.tlpComision.Controls.Add(this.lblId, 0, 0);
             this.tlpComision.Controls.Add(this.lblAño, 0, 2);
             this.tlpComision.Controls.Add(this.lblDescripcion, 0, 1);
@@ -100,7 +100,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(109, 36);
+            this.txtDescripcion.Location = new System.Drawing.Point(108, 36);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(162, 20);
             this.txtDescripcion.TabIndex = 3;
@@ -117,7 +117,7 @@
             // cmbPlanes
             // 
             this.cmbPlanes.FormattingEnabled = true;
-            this.cmbPlanes.Location = new System.Drawing.Point(109, 116);
+            this.cmbPlanes.Location = new System.Drawing.Point(108, 116);
             this.cmbPlanes.Name = "cmbPlanes";
             this.cmbPlanes.Size = new System.Drawing.Size(162, 21);
             this.cmbPlanes.TabIndex = 5;
@@ -125,7 +125,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(210, 175);
+            this.btnAceptar.Location = new System.Drawing.Point(208, 175);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 6;
@@ -135,7 +135,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(291, 175);
+            this.btnCancelar.Location = new System.Drawing.Point(289, 175);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -145,7 +145,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(109, 69);
+            this.numericUpDown1.Location = new System.Drawing.Point(108, 69);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -157,8 +157,10 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(109, 3);
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(108, 3);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(162, 20);
             this.txtID.TabIndex = 9;
             // 

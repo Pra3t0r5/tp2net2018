@@ -58,13 +58,11 @@
             // tcUsuarios.ContentPanel
             // 
             this.tcUsuarios.ContentPanel.Controls.Add(this.tblUsuarios);
-            this.tcUsuarios.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(1067, 527);
+            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(800, 423);
             this.tcUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tcUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcUsuarios.Name = "tcUsuarios";
-            this.tcUsuarios.Size = new System.Drawing.Size(1067, 554);
+            this.tcUsuarios.Size = new System.Drawing.Size(800, 450);
             this.tcUsuarios.TabIndex = 0;
             this.tcUsuarios.Text = "toolStripContainer1";
             // 
@@ -82,12 +80,11 @@
             this.tblUsuarios.Controls.Add(this.btnSalir, 1, 1);
             this.tblUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tblUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tblUsuarios.Name = "tblUsuarios";
             this.tblUsuarios.RowCount = 2;
             this.tblUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblUsuarios.Size = new System.Drawing.Size(1067, 527);
+            this.tblUsuarios.Size = new System.Drawing.Size(800, 423);
             this.tblUsuarios.TabIndex = 0;
             // 
             // dgvUsuarios
@@ -104,13 +101,12 @@
             this.habilitado});
             this.tblUsuarios.SetColumnSpan(this.dgvUsuarios, 2);
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUsuarios.Location = new System.Drawing.Point(4, 4);
-            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvUsuarios.Location = new System.Drawing.Point(3, 3);
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(1059, 483);
+            this.dgvUsuarios.Size = new System.Drawing.Size(794, 388);
             this.dgvUsuarios.TabIndex = 0;
             // 
             // Id
@@ -164,20 +160,18 @@
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(855, 495);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Location = new System.Drawing.Point(641, 397);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(100, 28);
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(963, 495);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Location = new System.Drawing.Point(722, 397);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 28);
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -193,7 +187,7 @@
             this.tsEliminar});
             this.tsUsuarios.Location = new System.Drawing.Point(3, 0);
             this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(84, 27);
+            this.tsUsuarios.Size = new System.Drawing.Size(115, 27);
             this.tsUsuarios.TabIndex = 0;
             // 
             // tsNuevo
@@ -228,11 +222,10 @@
             // 
             // Usuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tcUsuarios);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Usuarios";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Usuarios_Load);

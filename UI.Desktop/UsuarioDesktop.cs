@@ -87,10 +87,7 @@ namespace UI.Desktop
                 else if (Modo == ModoForm.Alta)
                 {
                     this.txtID.ReadOnly = true;
-                }
-
-             
-
+                }           
             }
 
             switch (Modo)

@@ -62,6 +62,7 @@ namespace Data.Database
                     cur.AnioCalendario = (int)drCurso["anio_calendario"];
                     cur.DescripcionComision = (string)drCurso["desc_comision"];
                     cur.DescripcionMateria = (string)drCurso["desc_materia"];
+                    cur.Cupo = (int)drCurso["cupo"];
                 }
                 drCurso.Close();
                 return cur;
