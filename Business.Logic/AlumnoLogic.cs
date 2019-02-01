@@ -27,6 +27,11 @@ namespace Business.Logic
             return this.AlumnoData.GetOne(ID);
         }
 
+        public Persona GetOneByLegajo(int Legajo)
+        {
+            return this.AlumnoData.GetOneByLegajo(Legajo);
+        }
+
         public void Save(Persona persona)
         {
             this.AlumnoData.Save(persona);

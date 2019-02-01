@@ -31,5 +31,13 @@ namespace UI.Desktop
             AlumnoInscripcionLogic ai = new AlumnoInscripcionLogic();
             this.dgvInscripciones.DataSource = ai.GetAlumnoInscripcionsWithDates(Convert.ToInt32(nudDesde.Value), Convert.ToInt32(nudHasta.Value));
         }
+
+        private void tsInscribirAlumno_Click(object sender, EventArgs e)
+        {
+            AltaInscripcionDesktop altaAlumno = new AltaInscripcionDesktop();
+            altaAlumno.ShowDialog();
+            altaAlumno.Dispose();
+
+        }
     }
 }

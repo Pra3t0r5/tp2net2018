@@ -32,20 +32,20 @@
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvInscripciones = new System.Windows.Forms.DataGridView();
-            this.btnFiltar = new System.Windows.Forms.Button();
-            this.lblFechaHasta = new System.Windows.Forms.Label();
-            this.lblFechaDesde = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsInscribirAlumno = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.nudDesde = new System.Windows.Forms.NumericUpDown();
-            this.nudHasta = new System.Windows.Forms.NumericUpDown();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nudHasta = new System.Windows.Forms.NumericUpDown();
+            this.nudDesde = new System.Windows.Forms.NumericUpDown();
+            this.btnFiltar = new System.Windows.Forms.Button();
+            this.lblFechaHasta = new System.Windows.Forms.Label();
+            this.lblFechaDesde = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsInscribirAlumno = new System.Windows.Forms.ToolStripButton();
+            this.tsEliminarInscripcion = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -54,9 +54,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripciones)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDesde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHasta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDesde)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -117,77 +117,6 @@
             this.dgvInscripciones.Size = new System.Drawing.Size(633, 334);
             this.dgvInscripciones.TabIndex = 0;
             // 
-            // btnFiltar
-            // 
-            this.btnFiltar.Location = new System.Drawing.Point(12, 129);
-            this.btnFiltar.Name = "btnFiltar";
-            this.btnFiltar.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltar.TabIndex = 4;
-            this.btnFiltar.Text = "Filtrar";
-            this.btnFiltar.UseVisualStyleBackColor = true;
-            this.btnFiltar.Click += new System.EventHandler(this.btnFiltar_Click);
-            // 
-            // lblFechaHasta
-            // 
-            this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(14, 60);
-            this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(107, 13);
-            this.lblFechaHasta.TabIndex = 2;
-            this.lblFechaHasta.Text = "Año calendario hasta";
-            // 
-            // lblFechaDesde
-            // 
-            this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(11, 14);
-            this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(110, 13);
-            this.lblFechaDesde.TabIndex = 1;
-            this.lblFechaDesde.Text = "Año calendario desde";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsInscribirAlumno,
-            this.toolStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(58, 25);
-            this.toolStrip1.TabIndex = 0;
-            // 
-            // tsInscribirAlumno
-            // 
-            this.tsInscribirAlumno.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsInscribirAlumno.Image = ((System.Drawing.Image)(resources.GetObject("tsInscribirAlumno.Image")));
-            this.tsInscribirAlumno.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsInscribirAlumno.Name = "tsInscribirAlumno";
-            this.tsInscribirAlumno.Size = new System.Drawing.Size(23, 22);
-            this.tsInscribirAlumno.Text = "Nueva Inscripcion";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // nudDesde
-            // 
-            this.nudDesde.Location = new System.Drawing.Point(17, 31);
-            this.nudDesde.Name = "nudDesde";
-            this.nudDesde.Size = new System.Drawing.Size(82, 20);
-            this.nudDesde.TabIndex = 5;
-            // 
-            // nudHasta
-            // 
-            this.nudHasta.Location = new System.Drawing.Point(17, 90);
-            this.nudHasta.Name = "nudHasta";
-            this.nudHasta.Size = new System.Drawing.Size(82, 20);
-            this.nudHasta.TabIndex = 6;
-            // 
             // id
             // 
             this.id.DataPropertyName = "ID";
@@ -234,6 +163,78 @@
             this.Año.Name = "Año";
             this.Año.ReadOnly = true;
             // 
+            // nudHasta
+            // 
+            this.nudHasta.Location = new System.Drawing.Point(17, 90);
+            this.nudHasta.Name = "nudHasta";
+            this.nudHasta.Size = new System.Drawing.Size(82, 20);
+            this.nudHasta.TabIndex = 6;
+            // 
+            // nudDesde
+            // 
+            this.nudDesde.Location = new System.Drawing.Point(17, 31);
+            this.nudDesde.Name = "nudDesde";
+            this.nudDesde.Size = new System.Drawing.Size(82, 20);
+            this.nudDesde.TabIndex = 5;
+            // 
+            // btnFiltar
+            // 
+            this.btnFiltar.Location = new System.Drawing.Point(12, 129);
+            this.btnFiltar.Name = "btnFiltar";
+            this.btnFiltar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltar.TabIndex = 4;
+            this.btnFiltar.Text = "Filtrar";
+            this.btnFiltar.UseVisualStyleBackColor = true;
+            this.btnFiltar.Click += new System.EventHandler(this.btnFiltar_Click);
+            // 
+            // lblFechaHasta
+            // 
+            this.lblFechaHasta.AutoSize = true;
+            this.lblFechaHasta.Location = new System.Drawing.Point(14, 60);
+            this.lblFechaHasta.Name = "lblFechaHasta";
+            this.lblFechaHasta.Size = new System.Drawing.Size(107, 13);
+            this.lblFechaHasta.TabIndex = 2;
+            this.lblFechaHasta.Text = "Año calendario hasta";
+            // 
+            // lblFechaDesde
+            // 
+            this.lblFechaDesde.AutoSize = true;
+            this.lblFechaDesde.Location = new System.Drawing.Point(11, 14);
+            this.lblFechaDesde.Name = "lblFechaDesde";
+            this.lblFechaDesde.Size = new System.Drawing.Size(110, 13);
+            this.lblFechaDesde.TabIndex = 1;
+            this.lblFechaDesde.Text = "Año calendario desde";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsInscribirAlumno,
+            this.tsEliminarInscripcion});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(89, 25);
+            this.toolStrip1.TabIndex = 0;
+            // 
+            // tsInscribirAlumno
+            // 
+            this.tsInscribirAlumno.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsInscribirAlumno.Image = ((System.Drawing.Image)(resources.GetObject("tsInscribirAlumno.Image")));
+            this.tsInscribirAlumno.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsInscribirAlumno.Name = "tsInscribirAlumno";
+            this.tsInscribirAlumno.Size = new System.Drawing.Size(23, 22);
+            this.tsInscribirAlumno.Text = "Nueva Inscripcion";
+            this.tsInscribirAlumno.Click += new System.EventHandler(this.tsInscribirAlumno_Click);
+            // 
+            // tsEliminarInscripcion
+            // 
+            this.tsEliminarInscripcion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsEliminarInscripcion.Image = ((System.Drawing.Image)(resources.GetObject("tsEliminarInscripcion.Image")));
+            this.tsEliminarInscripcion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsEliminarInscripcion.Name = "tsEliminarInscripcion";
+            this.tsEliminarInscripcion.Size = new System.Drawing.Size(23, 22);
+            this.tsEliminarInscripcion.Text = "Eliminar Inscripcion";
+            // 
             // AlumnoInscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,10 +254,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHasta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDesde)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDesde)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHasta)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,7 +267,7 @@
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsInscribirAlumno;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton tsEliminarInscripcion;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dgvInscripciones;
         private System.Windows.Forms.Button btnFiltar;

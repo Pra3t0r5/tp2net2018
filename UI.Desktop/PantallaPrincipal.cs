@@ -31,7 +31,11 @@ namespace UI.Desktop
             {
                 switch(usr.TipoPersona)
                 {
-                    case 2:
+                    case 1: this.btnAnotarAlumno.Enabled = false;  // 1 = Profesor
+
+                        break;
+
+                    case 2: this.toolStripContainer1.Enabled = false;                                        // 2 = Alumno
 
                         break;
                 }
@@ -80,8 +84,13 @@ namespace UI.Desktop
             comisiones.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAnotarAlumno_Click(object sender, EventArgs e)
         {
+            
+                AlumnoInscripciones alumnoInscripciones = new AlumnoInscripciones();
+                alumnoInscripciones.ShowDialog();
+                alumnoInscripciones.Dispose();
+            
 
         }
 

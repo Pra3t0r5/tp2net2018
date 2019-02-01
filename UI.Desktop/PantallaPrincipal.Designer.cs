@@ -30,7 +30,7 @@
         {
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAnotarAlumno = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripSplitButton();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +70,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnAnotarAlumno);
             this.groupBox1.Location = new System.Drawing.Point(29, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(739, 361);
@@ -78,15 +78,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acciones rapidas";
             // 
-            // button1
+            // btnAnotarAlumno
             // 
-            this.button1.Location = new System.Drawing.Point(158, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(404, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Inscripcion a cursado";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAnotarAlumno.Location = new System.Drawing.Point(158, 56);
+            this.btnAnotarAlumno.Name = "btnAnotarAlumno";
+            this.btnAnotarAlumno.Size = new System.Drawing.Size(404, 23);
+            this.btnAnotarAlumno.TabIndex = 0;
+            this.btnAnotarAlumno.Text = "Inscripcion a cursado";
+            this.btnAnotarAlumno.UseVisualStyleBackColor = true;
+            this.btnAnotarAlumno.Click += new System.EventHandler(this.btnAnotarAlumno_Click);
             // 
             // toolStrip1
             // 
@@ -97,7 +97,7 @@
             this.toolStripLabel3});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(254, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(223, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripLabel1
@@ -144,21 +144,21 @@
             // planesToolStripMenuItem
             // 
             this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.planesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.planesToolStripMenuItem.Text = "Planes";
             this.planesToolStripMenuItem.Click += new System.EventHandler(this.planesToolStripMenuItem_Click);
             // 
             // materiasToolStripMenuItem
             // 
             this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.materiasToolStripMenuItem.Text = "Materias";
             this.materiasToolStripMenuItem.Click += new System.EventHandler(this.materiasToolStripMenuItem_Click);
             // 
             // especialidadesToolStripMenuItem
             // 
             this.especialidadesToolStripMenuItem.Name = "especialidadesToolStripMenuItem";
-            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.especialidadesToolStripMenuItem.Text = "Especialidades";
             this.especialidadesToolStripMenuItem.Click += new System.EventHandler(this.especialidadesToolStripMenuItem_Click);
             // 
@@ -218,7 +218,7 @@
         private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem especialidadesToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAnotarAlumno;
         private System.Windows.Forms.ToolStripDropDownButton toolStripLabel3;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem1;

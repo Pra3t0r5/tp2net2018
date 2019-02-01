@@ -64,6 +64,36 @@ namespace Data.Database
             return esp;
         }
 
+        public Especialidad GetOneFromPlan(int ID)
+        {
+            Especialidad esp = new Especialidad();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdEspecialidad = new SqlCommand("SELECT * FROM especialidades e"+
+                    "INNER JOIN planes p ON e.id_plan = p_id_plan"+
+                    "WHERE id_plan = @id", SqlConn);
+                cmdEspecialidad.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drEspecialidad = cmdEspecialidad.ExecuteReader();
+                if (drEspecialidad.Read())
+                {
+                    esp.ID = (int)drEspecialidad["id_especialidad"];
+                    esp.Descripcion = (string)drEspecialidad["desc_especialidad"];
+                }
+                drEspecialidad.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error el traer la especialidad", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return esp;
+        }
+
         public void Delete(int ID)
         {
             try

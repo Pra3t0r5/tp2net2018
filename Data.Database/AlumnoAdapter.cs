@@ -82,6 +82,42 @@ namespace Data.Database
             }
             return psr;
         }
+        public Persona GetOneByLegajo(int Legajo)
+        {
+            Persona psr = new Persona();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdUsuario = new SqlCommand("SELECT * FROM PERSONAS WHERE legajo=@legajo and tipo_persona = 2", SqlConn);
+                cmdUsuario.Parameters.Add("@legajo", SqlDbType.Int).Value = Legajo;
+                SqlDataReader drAlumnos = cmdUsuario.ExecuteReader();
+                if (drAlumnos.Read())
+                {
+
+                    psr.ID = (int)drAlumnos["id_persona"];
+                    psr.Nombre = (string)drAlumnos["nombre"];
+                    psr.Apellido = (string)drAlumnos["apellido"];
+                    psr.Direccion = (string)drAlumnos["direccion"];
+                    psr.Email = (string)drAlumnos["email"];
+                    psr.Telefono = (string)drAlumnos["telefono"];
+                    psr.FechaNacimiento = (DateTime)drAlumnos["fecha_nac"];
+                    psr.Legajo = (int)drAlumnos["legajo"];
+                    psr.TipoPersona = (int)drAlumnos["legajo"];
+                    psr.IDPlan = (int)drAlumnos["id_plan"];
+                }
+                drAlumnos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionControlada = new Exception("Error al recuperar alumno", Ex);
+                throw ExcepcionControlada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return psr;
+        }
 
         public void Delete(int ID)
         {

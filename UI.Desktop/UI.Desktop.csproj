@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaInscripcionDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaInscripcionDesktop.Designer.cs">
+      <DependentUpon>AltaInscripcionDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlumnoDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AltaInscripcionDesktop.resx">
+      <DependentUpon>AltaInscripcionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlumnoDesktop.resx">
       <DependentUpon>AlumnoDesktop.cs</DependentUpon>
     </EmbeddedResource>
