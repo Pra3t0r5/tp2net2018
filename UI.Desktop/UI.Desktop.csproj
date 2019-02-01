@@ -102,6 +102,11 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="basicoCursoEspMat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>basicoCursoEspMat.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ComisionDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +290,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="basicoCursoEspMat.xsc">
+      <DependentUpon>basicoCursoEspMat.xsd</DependentUpon>
+    </None>
+    <None Include="basicoCursoEspMat.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>basicoCursoEspMat.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="basicoCursoEspMat.xss">
+      <DependentUpon>basicoCursoEspMat.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Business.Entities.Curso.datasource" />
     <None Include="Properties\DataSources\Business.Entities.Persona.datasource" />
