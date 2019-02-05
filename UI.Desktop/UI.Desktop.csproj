@@ -161,6 +161,11 @@
     <Compile Include="Materias.Designer.cs">
       <DependentUpon>Materias.cs</DependentUpon>
     </Compile>
+    <Compile Include="mix.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mix.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PantallaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +305,17 @@
     </None>
     <None Include="basicoCursoEspMat.xss">
       <DependentUpon>basicoCursoEspMat.xsd</DependentUpon>
+    </None>
+    <None Include="mix.xsc">
+      <DependentUpon>mix.xsd</DependentUpon>
+    </None>
+    <None Include="mix.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>mix.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="mix.xss">
+      <DependentUpon>mix.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Business.Entities.Curso.datasource" />

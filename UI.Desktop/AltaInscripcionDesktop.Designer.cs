@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNumeroInscripcion = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -40,8 +41,21 @@
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.lblLegajo = new System.Windows.Forms.Label();
             this.cmbMateria = new System.Windows.Forms.ComboBox();
+            this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mixBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mix = new UI.Desktop.mix();
             this.cmbComision = new System.Windows.Forms.ComboBox();
+            this.comisionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
+            this.comisionesTableAdapter = new UI.Desktop.mixTableAdapters.comisionesTableAdapter();
+            this.especialidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.especialidadesTableAdapter = new UI.Desktop.mixTableAdapters.especialidadesTableAdapter();
+            this.materiasTableAdapter = new UI.Desktop.mixTableAdapters.materiasTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mixBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mix)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comisionesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumeroInscripcion
@@ -142,19 +156,46 @@
             // 
             // cmbMateria
             // 
+            this.cmbMateria.DataSource = this.materiasBindingSource;
+            this.cmbMateria.DisplayMember = "desc_materia";
             this.cmbMateria.FormattingEnabled = true;
             this.cmbMateria.Location = new System.Drawing.Point(94, 133);
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(184, 21);
             this.cmbMateria.TabIndex = 19;
+            this.cmbMateria.ValueMember = "id_materia";
+            this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
+            // 
+            // materiasBindingSource
+            // 
+            this.materiasBindingSource.DataMember = "materias";
+            this.materiasBindingSource.DataSource = this.mixBindingSource;
+            // 
+            // mixBindingSource
+            // 
+            this.mixBindingSource.DataSource = this.mix;
+            this.mixBindingSource.Position = 0;
+            // 
+            // mix
+            // 
+            this.mix.DataSetName = "mix";
+            this.mix.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cmbComision
             // 
+            this.cmbComision.DataSource = this.comisionesBindingSource;
+            this.cmbComision.DisplayMember = "desc_comision";
             this.cmbComision.FormattingEnabled = true;
             this.cmbComision.Location = new System.Drawing.Point(347, 133);
             this.cmbComision.Name = "cmbComision";
             this.cmbComision.Size = new System.Drawing.Size(67, 21);
             this.cmbComision.TabIndex = 20;
+            this.cmbComision.ValueMember = "id_comision";
+            // 
+            // comisionesBindingSource
+            // 
+            this.comisionesBindingSource.DataMember = "comisiones";
+            this.comisionesBindingSource.DataSource = this.mixBindingSource;
             // 
             // cmbEspecialidad
             // 
@@ -163,6 +204,24 @@
             this.cmbEspecialidad.Name = "cmbEspecialidad";
             this.cmbEspecialidad.Size = new System.Drawing.Size(184, 21);
             this.cmbEspecialidad.TabIndex = 18;
+            this.cmbEspecialidad.Text = "System.Data.DataViewManagerListItemTypeDescriptor";
+            // 
+            // comisionesTableAdapter
+            // 
+            this.comisionesTableAdapter.ClearBeforeFill = true;
+            // 
+            // especialidadesBindingSource
+            // 
+            this.especialidadesBindingSource.DataMember = "especialidades";
+            this.especialidadesBindingSource.DataSource = this.mixBindingSource;
+            // 
+            // especialidadesTableAdapter
+            // 
+            this.especialidadesTableAdapter.ClearBeforeFill = true;
+            // 
+            // materiasTableAdapter
+            // 
+            this.materiasTableAdapter.ClearBeforeFill = true;
             // 
             // AltaInscripcionDesktop
             // 
@@ -186,6 +245,12 @@
             this.Controls.Add(this.lblNumeroInscripcion);
             this.Name = "AltaInscripcionDesktop";
             this.Text = "AltaInscripcionDesktop";
+            this.Load += new System.EventHandler(this.AltaInscripcionDesktop_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mixBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mix)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comisionesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +272,13 @@
         private System.Windows.Forms.ComboBox cmbMateria;
         private System.Windows.Forms.ComboBox cmbComision;
         private System.Windows.Forms.ComboBox cmbEspecialidad;
+        private System.Windows.Forms.BindingSource mixBindingSource;
+        private mix mix;
+        private System.Windows.Forms.BindingSource comisionesBindingSource;
+        private mixTableAdapters.comisionesTableAdapter comisionesTableAdapter;
+        private System.Windows.Forms.BindingSource especialidadesBindingSource;
+        private mixTableAdapters.especialidadesTableAdapter especialidadesTableAdapter;
+        private System.Windows.Forms.BindingSource materiasBindingSource;
+        private mixTableAdapters.materiasTableAdapter materiasTableAdapter;
     }
 }

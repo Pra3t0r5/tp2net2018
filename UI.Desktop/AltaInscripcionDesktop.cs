@@ -14,16 +14,22 @@ using Util;
 namespace UI.Desktop
 {
     public partial class AltaInscripcionDesktop : ApplicationForm
-    {
+    {      
 
         private AlumnoInscripcionLogic ainsLogic { get; set; }
         private AlumnoInscripcion inscripcionActual { get; set; }
-        
-        private AlumnoLogic al { get; set; }
+        private Especialidad especialidadActual { get; set; }
+        private List<Materia> materiasActuales { get; set; }
+        private Comision comisiones { get; set; }        
+        private AlumnoLogic alumLogic { get; set; }
         private Persona alumnoAInscribir { get; set; }
-
         private MetodosParaControls metodosParaControls { get; set; }
+        private CursoLogic curLogic { get; set; }
+        private Curso cursoSeleccionado { get; set; }
 
+        EspecialidadLogic especialidadCombo = new EspecialidadLogic();
+        MateriaLogic materiaCombo = new MateriaLogic();
+        ComisionLogic comisionCombo = new ComisionLogic();
 
         public AltaInscripcionDesktop()
         {
@@ -32,97 +38,46 @@ namespace UI.Desktop
             this.metodosParaControls = new MetodosParaControls();
             this.inscripcionActual = new AlumnoInscripcion();
             this.alumnoAInscribir = new Persona();
+            this.alumLogic = new AlumnoLogic();
+            this.curLogic = new CursoLogic();
+            this.cursoSeleccionado = new Curso();
+            
         }
         public AltaInscripcionDesktop(ModoForm modo) : this()
         {
             Modo = modo;
-            this.inscripcionActual = ainsLogic.GetOne(ID);
-            this.MapearDeDatos();
+            this.txtLegajo.Text = "";
+            this.txtAlumno.Text = "";
+            this.cmbComision.Text = "";
+            this.cmbEspecialidad.Text = "";
+            this.cmbMateria.Text = "";
         }
 
-        //public AltaInscripcionDesktop(int ID, ModoForm modo) : this()
-        //{
-        //    Modo = modo;
-        //    AlumnoInscripcionLogic ainsLogic = new AlumnoInscripcionLogic();
-        //    this.inscripcionActual = ainsLogic.GetOne(ID);
-        //    this.MapearDeDatos();
-        //}
-
-        public override void MapearDeDatos()
+        public void MapearAlumnoDeDatos()
         {
-            this.txtId.Text = this.inscripcionActual.ID.ToString();
-            this.txtDescripcion.Text = this.inscripcionActual.Descripcion;
-            this.nudHsSemanales.Value = this.inscripcionActual.HSSemanales;
-            this.nudHsTotales.Value = this.inscripcionActual.HSTotales;
-            this.cmbPlanes.DisplayMember = this.inscripcionActual.DescripcionPlan;
-            this.cmbPlanes.ValueMember = this.inscripcionActual.IDPlan.ToString();
+            this.txtAlumno.Text = this.alumnoAInscribir.Nombre.ToString()+" "+ this.alumnoAInscribir.Apellido.ToString();
+            this.txtLegajo.Text = this.alumnoAInscribir.Legajo.ToString();
+            this.cmbEspecialidad.Text = this.especialidadActual.ToString();
+            this.cmbMateria.Text = this.materiasActuales.ToString();
+            this.cmbComision.Text = this.comisiones.ToString();
+
             switch (Modo)
             {
                 case ModoForm.Alta:
-                    this.btnGuardar.Text = "Guardar";
+                    this.btnAceptar.Text = "Guardar";
                     break;
                 case ModoForm.Baja:
-                    this.btnGuardar.Text = "Eliminar";
+                    this.btnAceptar.Text = "Eliminar";
                     break;
                 case ModoForm.Modificacion:
-                    this.btnGuardar.Text = "Guardar";
+                    this.btnAceptar.Text = "Guardar";
                     break;
                 case ModoForm.Consulta:
-                    this.btnGuardar.Text = "Aceptar";
+                    this.btnAceptar.Text = "Aceptar";
                     break;
             }
         }
-
-        public override void MapearADatos()
-        {
-            if (Modo == ModoForm.Alta)
-            {
-                Materia esp = new Materia();
-                this.inscripcionActual = esp;
-            }
-            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
-            {
-                inscripcionActual.Descripcion = txtDescripcion.Text;
-                inscripcionActual.HSSemanales = Convert.ToInt32(nudHsSemanales.Value);
-                inscripcionActual.HSTotales = Convert.ToInt32(nudHsTotales.Value);
-                inscripcionActual.IDPlan = Convert.ToInt32(cmbPlanes.SelectedValue);
-                if (Modo == ModoForm.Modificacion)
-                {
-                    inscripcionActual.ID = Convert.ToInt32(this.txtId.Text);
-                }
-            }
-
-            switch (Modo)
-            {
-                case ModoForm.Alta:
-                    this.inscripcionActual.State = BusinessEntity.States.New;
-                    break;
-                case ModoForm.Baja:
-                    this.inscripcionActual.State = BusinessEntity.States.Deleted;
-                    break;
-                case ModoForm.Modificacion:
-                    this.inscripcionActual.State = BusinessEntity.States.Modified;
-                    break;
-            }
-
-        }
-
-
-        public override bool Validar()
-        {
-            return this.metodosParaControls.validarControlesVacios(this.tblMaterias.Controls);
-        }
-
-        public override void GuardarCambios()
-        {
-            if (this.Validar())
-            {
-                this.MapearADatos();
-                this.materiaLogic.Save(inscripcionActual);
-                this.Close();
-            }
-        }
-
+    
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -131,14 +86,7 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.GuardarCambios();
-        }
-
-        private void MateriaDesktop_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'tp2_netDataSet.planes' Puede moverla o quitarla según sea necesario.
-            this.planesTableAdapter.Fill(this.tp2_netDataSet.planes);
-
-        }
+        }      
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -150,19 +98,6 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        public void CargarCombos()
-        {
-            MateriaLogic mt = new MateriaLogic();
-            this.cmbPlanes.DataSource = mt.GetAllForCombo();
-            this.cmbPlanes.DisplayMember = "Descripcion";
-            this.cmbPlanes.ValueMember = "ID";
-        }
-
         private void txtLegajo_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -170,9 +105,11 @@ namespace UI.Desktop
                 int legajoIngresado = int.Parse(txtLegajo.Text);
                 try
                 {
-                    this.alumnoAInscribir = al.GetOneByLegajo(legajoIngresado);
-                    this.txtAlumno.Text = alumnoAInscribir.Nombre + " " + alumnoAInscribir.Apellido;
-                    this.
+                    this.alumnoAInscribir = alumLogic.GetOneByLegajo(Convert.ToInt32(txtLegajo.Text));
+                    this.MapearAlumnoDeDatos();
+
+                    String especialidadSeleccionada = llenarComboEspecialidad();
+                  
                 }
                 catch (Exception ex)
                 {
@@ -184,6 +121,45 @@ namespace UI.Desktop
                     }
                 }
             }
+        } 
+
+        private void AltaInscripcionDesktop_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'mix.materias' Puede moverla o quitarla según sea necesario.
+            this.materiasTableAdapter.Fill(this.mix.materias);
+            // TODO: esta línea de código carga datos en la tabla 'mix.especialidades' Puede moverla o quitarla según sea necesario.
+            this.especialidadesTableAdapter.Fill(this.mix.especialidades);
+            // TODO: esta línea de código carga datos en la tabla 'mix.comisiones' Puede moverla o quitarla según sea necesario.
+            this.comisionesTableAdapter.Fill(this.mix.comisiones);
+
+        }
+
+        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+            int idMateria = (int)cmb.SelectedValue;
+
+            BindingSource bindingComision = new BindingSource();
+            bindingComision.DataSource = comisionCombo.GetAllByMateria(idMateria);
+            cmbComision.DataSource = bindingComision.DataSource;
+            
+            this.cursoSeleccionado.IDComision = Convert.ToInt32(cmbComision.ValueMember = "id_comision");
+        }
+
+        private String llenarComboEspecialidad()
+        {
+            BindingSource bindingEspecialidad = new BindingSource();
+            bindingEspecialidad.DataSource = especialidadCombo.GetAllByIdPlan(alumnoAInscribir.IDPlan);
+            cmbEspecialidad.DataSource = bindingEspecialidad.DataSource;
+            return cmbEspecialidad.ValueMember = "id_especialidad";            
+        }
+
+        private void llenarComboMaterias()
+        {
+            BindingSource bindingMateria = new BindingSource();
+            bindingMateria.DataSource = materiaCombo.GetAllByIdPlan(alumnoAInscribir.IDPlan);
+            cmbMateria.DataSource = bindingMateria.DataSource;
+            this.cursoSeleccionado.IDMateria = Convert.ToInt32(cmbMateria.ValueMember = "id_materia");
         }
     }
 }

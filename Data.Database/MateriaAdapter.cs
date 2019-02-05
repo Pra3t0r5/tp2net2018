@@ -190,6 +190,40 @@ namespace Data.Database
             mat.State = BusinessEntity.States.Unmodified;
         }
 
+        public List<Materia> GetAllByIdPlan(int idPlan)
+        {
+            List<Materia> materias = new List<Materia>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdMaterias = new SqlCommand("SELECT * FROM materias WHERE id_plan = @idPlan ", SqlConn);
+                cmdMaterias.Parameters.Add("@idPlan", SqlDbType.Int).Value = idPlan;
+                SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
+                while (drMaterias.Read())
+                {
+                    Materia mat = new Materia();
+                    mat.ID = (int)drMaterias["id_materia"];
+                    mat.Descripcion = (string)drMaterias["desc_materia"];
+                    mat.HSSemanales = (int)drMaterias["hs_semanales"];
+                    mat.HSTotales = (int)drMaterias["hs_totales"];
+                    mat.IDPlan = (int)drMaterias["id_plan"];
+                    mat.DescripcionPlan = (string)drMaterias["desc_plan"];
+                    materias.Add(mat);
+                }
+                drMaterias.Close();
+                return materias;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al traer materias", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
 
     }
 }

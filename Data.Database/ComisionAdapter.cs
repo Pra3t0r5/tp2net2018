@@ -161,6 +161,39 @@ namespace Data.Database
             comision.State = BusinessEntity.States.Unmodified;
         }
 
+        public List<Comision> GetAllByMateria(int idMateria)
+        {
+            List<Comision> comisiones = new List<Comision>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdComisiones = new SqlCommand("SELECT * FROM COMISIONES WHERE id_materia = @idMateria", SqlConn);
+                cmdComisiones.Parameters.Add("@idMateria", SqlDbType.Int).Value = idMateria;
+                SqlDataReader drComision = cmdComisiones.ExecuteReader();
+                while (drComision.Read())
+                {
+                    Comision comi = new Comision();
+                    comi.ID = (int)drComision["id_comision"];
+                    comi.Descripcion = (string)drComision["desc_comision"];
+                    comi.AnioEspecialidad = (int)drComision["anio_especialidad"];
+                    comi.IDPlan = (int)drComision["id_plan"];
+                    comi.DescripcionPlan = (string)drComision["desc_plan"];
+                    comisiones.Add(comi);
+                }
+                drComision.Close();
+                return comisiones;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar comisiones", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
 
     }
 }

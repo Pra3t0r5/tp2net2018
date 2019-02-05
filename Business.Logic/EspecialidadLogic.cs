@@ -39,6 +39,11 @@ namespace Business.Logic
             return this.EspecialidadData.GetOneFromPlan(ID);
         }
 
+        public List<Especialidad> GetAllByIdPlan(int idPlan)
+        {
+            return this.EspecialidadData.GetAllByIdPlan(idPlan);
+        }
+
         public void Save(Especialidad esp)
         {
             this.EspecialidadData.Save(esp);

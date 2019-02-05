@@ -42,5 +42,10 @@ namespace Business.Logic
             this.MateriaData.Delete(ID);
         }
 
+        public List<Materia> GetAllByIdPlan(int idPlan)
+        {
+            return this.MateriaData.GetAllByIdPlan(idPlan);
+        }
+
     }
 }

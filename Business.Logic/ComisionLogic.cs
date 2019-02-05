@@ -65,5 +65,10 @@ namespace Business.Logic
         {
             return this.combos.GetAllComisiones();
         }
+
+        public List<Comision> GetAllByMateria(int idMateria)
+        {
+            return this.ComisionData.GetAllByMateria(idMateria);
+        }
     }
 }

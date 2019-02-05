@@ -175,5 +175,35 @@ namespace Data.Database
         }
 
 
+        public List<Especialidad> GetAllByIdPlan(int idPlan)
+        {
+
+            List<Especialidad> especialidades = new List<Especialidad>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdEspecialidades = new SqlCommand("SELECT * FROM ESPECIALIDADES WHERE id_plan = @idPlan", SqlConn);
+                cmdEspecialidades.Parameters.Add("@idPlan", SqlDbType.Int).Value = idPlan;
+                SqlDataReader drEspecialidades = cmdEspecialidades.ExecuteReader();
+                while (drEspecialidades.Read())
+                {
+                    Especialidad esp = new Especialidad();
+                    esp.ID = (int)drEspecialidades["id_especialidad"];
+                    esp.Descripcion = (string)drEspecialidades["desc_especialidad"];
+                    especialidades.Add(esp);
+                }
+                drEspecialidades.Close();
+                this.CloseConnection();
+
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar las especialidades", ex);
+                throw ExcepcionManejada;
+            }
+            return especialidades;
+        }
+
+
     }
 }
