@@ -22,6 +22,7 @@ namespace UI.Desktop
         public virtual void MapearDeDatos() { }
         public virtual void MapearADatos() { }
         public virtual void GuardarCambios() { }
+       
         public virtual bool Validar() {
 
             Type tipoClase = null;

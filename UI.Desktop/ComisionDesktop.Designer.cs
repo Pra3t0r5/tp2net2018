@@ -48,7 +48,7 @@
             this.tlpComision.ColumnCount = 3;
             this.tlpComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.84211F));
             this.tlpComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.15789F));
-            this.tlpComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tlpComision.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tlpComision.Controls.Add(this.lblId, 0, 0);
             this.tlpComision.Controls.Add(this.lblAño, 0, 2);
             this.tlpComision.Controls.Add(this.lblDescripcion, 0, 1);
@@ -70,6 +70,7 @@
             this.tlpComision.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tlpComision.Size = new System.Drawing.Size(392, 207);
             this.tlpComision.TabIndex = 0;
+            
             // 
             // lblId
             // 
@@ -125,7 +126,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(208, 175);
+            this.btnAceptar.Location = new System.Drawing.Point(207, 175);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 6;
@@ -135,7 +136,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(289, 175);
+            this.btnCancelar.Location = new System.Drawing.Point(288, 175);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;

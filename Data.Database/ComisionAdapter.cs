@@ -161,14 +161,14 @@ namespace Data.Database
             comision.State = BusinessEntity.States.Unmodified;
         }
 
-        public List<Comision> GetAllByMateria(int idMateria)
+        public List<Comision> GetAllByMateria(int idPlan)
         {
             List<Comision> comisiones = new List<Comision>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdComisiones = new SqlCommand("SELECT * FROM COMISIONES WHERE id_materia = @idMateria", SqlConn);
-                cmdComisiones.Parameters.Add("@idMateria", SqlDbType.Int).Value = idMateria;
+                SqlCommand cmdComisiones = new SqlCommand("SELECT * FROM COMISIONES WHERE id_plan = @idPlan", SqlConn);
+                cmdComisiones.Parameters.Add("@idPlan", SqlDbType.Int).Value = idPlan;
                 SqlDataReader drComision = cmdComisiones.ExecuteReader();
                 while (drComision.Read())
                 {
@@ -177,7 +177,6 @@ namespace Data.Database
                     comi.Descripcion = (string)drComision["desc_comision"];
                     comi.AnioEspecialidad = (int)drComision["anio_especialidad"];
                     comi.IDPlan = (int)drComision["id_plan"];
-                    comi.DescripcionPlan = (string)drComision["desc_plan"];
                     comisiones.Add(comi);
                 }
                 drComision.Close();

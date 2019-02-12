@@ -172,6 +172,7 @@ namespace Data.Database
                 this.Update(especialidad);
             }
             especialidad.State = BusinessEntity.States.Unmodified;
+
         }
 
 
@@ -182,14 +183,14 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdEspecialidades = new SqlCommand("SELECT * FROM ESPECIALIDADES WHERE id_plan = @idPlan", SqlConn);
+                SqlCommand cmdEspecialidades = new SqlCommand("SELECT * FROM ESPECIALIDADES e INNER JOIN PLANES p ON e.id_especialidad = p.id_especialidad WHERE id_plan = @idPlan", SqlConn);
                 cmdEspecialidades.Parameters.Add("@idPlan", SqlDbType.Int).Value = idPlan;
                 SqlDataReader drEspecialidades = cmdEspecialidades.ExecuteReader();
                 while (drEspecialidades.Read())
                 {
                     Especialidad esp = new Especialidad();
-                    esp.ID = (int)drEspecialidades["id_especialidad"];
-                    esp.Descripcion = (string)drEspecialidades["desc_especialidad"];
+                    esp.ID = drEspecialidades["id_especialidad"] != DBNull.Value? (int)drEspecialidades["id_especialidad"] : 0;
+                    esp.Descripcion = drEspecialidades["desc_especialidad"] != DBNull.Value? (string)drEspecialidades["desc_especialidad"] : null;
                     especialidades.Add(esp);
                 }
                 drEspecialidades.Close();
@@ -202,8 +203,8 @@ namespace Data.Database
                 throw ExcepcionManejada;
             }
             return especialidades;
-        }
 
+        }
 
     }
 }
