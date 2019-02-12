@@ -78,6 +78,34 @@ namespace Data.Database
             }
         }
 
+        public int GetOneByIDs(int IDcomision, int IDmateria)
+        {
+            Curso cur = new Curso();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCurso = new SqlCommand("SELECT * FROM CURSOS WHERE id_materia = @IDmateria AND id_comision = @IDcomision", SqlConn);
+                cmdCurso.Parameters.Add("@IDmateria", SqlDbType.Int).Value = IDmateria;
+                cmdCurso.Parameters.Add("@IDcomision", SqlDbType.Int).Value = IDcomision;
+                SqlDataReader drCurso = cmdCurso.ExecuteReader();
+                if (drCurso.Read())
+                {
+                    cur.ID = (int)drCurso["id_curso"];
+                }
+                drCurso.Close();
+                return cur.ID;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar ID curso", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
         public void Delete(int ID)
         {
             try

@@ -22,8 +22,10 @@ namespace Business.Logic
             return this.AlumnoInscripcionData.GetAllInscripciones();
         }
 
-        public void InscribirAlumno(int IDPersona, int IDCurso)
+        public void InscribirAlumno(int IDPersona, int IDcomision, int IDmateria)
         {
+            CursoAdapter ca = new CursoAdapter();
+            int IDCurso = ca.GetOneByIDs(IDcomision, IDmateria);
             this.AlumnoInscripcionData.InsertAlumnoInscripcion(IDPersona, IDCurso);
         }
 
