@@ -113,14 +113,14 @@ namespace UI.WebMvc.Controllers
      
         public ActionResult ReportPlanes()
         {
-            CursoLogic cl = new CursoLogic();
+            PlanLogic pl = new PlanLogic();
             ReportViewer reportViewer = new ReportViewer();
             reportViewer.ProcessingMode = ProcessingMode.Local;
             reportViewer.SizeToReportContent = true;
-            reportViewer.Width = Unit.Percentage(900);
-            reportViewer.Height = Unit.Percentage(900);
-            ReportDataSource reportDataSource = new ReportDataSource("Cursos", cl.GetAll());
-            reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"ReporteCursos.rdlc";
+            reportViewer.Width = Unit.Percentage(200);
+            reportViewer.Height = Unit.Percentage(700);
+            ReportDataSource reportDataSource = new ReportDataSource("Planes", pl.GetAll());
+            reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"ReportePlanes.rdlc";
             reportViewer.LocalReport.DataSources.Add(reportDataSource);
 
 

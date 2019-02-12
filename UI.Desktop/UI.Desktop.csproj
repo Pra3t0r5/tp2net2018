@@ -202,6 +202,18 @@
     <Compile Include="ReporteCursos.Designer.cs">
       <DependentUpon>ReporteCursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteNotas.Designer.cs">
+      <DependentUpon>ReporteNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportePlanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportePlanes.Designer.cs">
+      <DependentUpon>ReportePlanes.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="tp2_netDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -280,6 +292,13 @@
     <EmbeddedResource Include="ReporteCursos.resx">
       <DependentUpon>ReporteCursos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteNotas.resx">
+      <DependentUpon>ReporteNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportePlanes.rdlc" />
+    <EmbeddedResource Include="ReportePlanes.resx">
+      <DependentUpon>ReportePlanes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +339,19 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Business.Entities.Curso.datasource" />
     <None Include="Properties\DataSources\Business.Entities.Persona.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Plan.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.AlumnoInscripcionLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.AlumnoLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.BusinessLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.ComisionLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.CursoLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.EspecialidadLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.LoginLogic+Errores.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.LoginLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.MateriaLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.PlanLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.ProfesorLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.UsuarioLogic.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

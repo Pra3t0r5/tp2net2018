@@ -145,7 +145,7 @@ namespace Data.Database
         }
 
 
-        public void InsertAlumnoInscripcion(int IDpersona,int IDCurso)
+        public void InsertAlumnoInscripcion(int IDpersona, int IDCurso)
         {
             try
             {

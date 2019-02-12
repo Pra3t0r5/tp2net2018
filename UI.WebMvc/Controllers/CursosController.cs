@@ -1,9 +1,11 @@
 ﻿using Business.Logic;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace UI.WebMvc.Controllers
 {
@@ -170,6 +172,24 @@ namespace UI.WebMvc.Controllers
             if (estado == Business.Entities.BusinessEntity.States.Modified)
                 curso.ID = Convert.ToInt32(collection["ID"]);
             return curso;
+        }
+
+        public ActionResult ReporteCursos()
+        {
+            CursoLogic pl = new CursoLogic();
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.SizeToReportContent = true;
+            reportViewer.Width = Unit.Percentage(200);
+            reportViewer.Height = Unit.Percentage(700);
+            ReportDataSource reportDataSource = new ReportDataSource("Cursos", pl.GetAll());
+            reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"ReporteCursos.rdlc";
+            reportViewer.LocalReport.DataSources.Add(reportDataSource);
+
+
+            ViewBag.ReportViewer = reportViewer;
+
+            return View();
         }
 
     }
