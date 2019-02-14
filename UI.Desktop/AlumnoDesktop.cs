@@ -18,11 +18,16 @@ namespace UI.Desktop
         Persona AlumnoActual { get; set; }
         private MetodosParaControls metodoParaControles { get; set; }
         
+        
 
         public AlumnoDesktop()
         {
             InitializeComponent();
             this.metodoParaControles = new MetodosParaControls();
+            PlanLogic pl = new PlanLogic();
+            this.cmbPlan.DataSource = pl.GetAllForCombo();
+            this.cmbPlan.DisplayMember = "Descripcion";
+            this.cmbPlan.ValueMember = "Id";
         }
 
         public AlumnoDesktop(ModoForm modo): this()
@@ -36,6 +41,9 @@ namespace UI.Desktop
             AlumnoLogic al = new AlumnoLogic();
             this.AlumnoActual = al.GetOne(ID);
             this.MapearDeDatos();
+      
+
+
         }
 
         public override void MapearDeDatos()

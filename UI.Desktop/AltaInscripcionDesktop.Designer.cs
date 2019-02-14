@@ -46,11 +46,11 @@
             this.mix = new UI.Desktop.mix();
             this.cmbComision = new System.Windows.Forms.ComboBox();
             this.comisionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
             this.comisionesTableAdapter = new UI.Desktop.mixTableAdapters.comisionesTableAdapter();
             this.especialidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.especialidadesTableAdapter = new UI.Desktop.mixTableAdapters.especialidadesTableAdapter();
             this.materiasTableAdapter = new UI.Desktop.mixTableAdapters.materiasTableAdapter();
+            this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mixBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mix)).BeginInit();
@@ -75,6 +75,7 @@
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -84,6 +85,7 @@
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtIdInscripcion
             // 
@@ -164,7 +166,7 @@
             this.cmbMateria.Size = new System.Drawing.Size(184, 21);
             this.cmbMateria.TabIndex = 19;
             this.cmbMateria.ValueMember = "id_materia";
-            this.cmbMateria.SelectedIndexChanged += new System.EventHandler(this.cmbMateria_SelectedIndexChanged);
+            
             // 
             // materiasBindingSource
             // 
@@ -191,20 +193,12 @@
             this.cmbComision.Size = new System.Drawing.Size(67, 21);
             this.cmbComision.TabIndex = 20;
             this.cmbComision.ValueMember = "id_comision";
+            this.cmbComision.SelectedIndexChanged += new System.EventHandler(this.cmbComision_SelectedIndexChanged);
             // 
             // comisionesBindingSource
             // 
             this.comisionesBindingSource.DataMember = "comisiones";
             this.comisionesBindingSource.DataSource = this.mixBindingSource;
-            // 
-            // cmbEspecialidad
-            // 
-            this.cmbEspecialidad.FormattingEnabled = true;
-            this.cmbEspecialidad.Location = new System.Drawing.Point(94, 107);
-            this.cmbEspecialidad.Name = "cmbEspecialidad";
-            this.cmbEspecialidad.Size = new System.Drawing.Size(184, 21);
-            this.cmbEspecialidad.TabIndex = 18;
-            this.cmbEspecialidad.Text = "System.Data.DataViewManagerListItemTypeDescriptor";
             // 
             // comisionesTableAdapter
             // 
@@ -223,15 +217,22 @@
             // 
             this.materiasTableAdapter.ClearBeforeFill = true;
             // 
+            // cmbEspecialidad
+            // 
+            this.cmbEspecialidad.FormattingEnabled = true;
+            this.cmbEspecialidad.Location = new System.Drawing.Point(94, 101);
+            this.cmbEspecialidad.Name = "cmbEspecialidad";
+            this.cmbEspecialidad.Size = new System.Drawing.Size(185, 21);
+            this.cmbEspecialidad.TabIndex = 21;
+            // 
             // AltaInscripcionDesktop
             // 
-            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 212);
+            this.Controls.Add(this.cmbEspecialidad);
             this.Controls.Add(this.cmbComision);
             this.Controls.Add(this.cmbMateria);
-            this.Controls.Add(this.cmbEspecialidad);
             this.Controls.Add(this.txtLegajo);
             this.Controls.Add(this.lblLegajo);
             this.Controls.Add(this.lblComision);
@@ -271,7 +272,6 @@
         private System.Windows.Forms.Label lblLegajo;
         private System.Windows.Forms.ComboBox cmbMateria;
         private System.Windows.Forms.ComboBox cmbComision;
-        private System.Windows.Forms.ComboBox cmbEspecialidad;
         private System.Windows.Forms.BindingSource mixBindingSource;
         private mix mix;
         private System.Windows.Forms.BindingSource comisionesBindingSource;
@@ -280,5 +280,6 @@
         private mixTableAdapters.especialidadesTableAdapter especialidadesTableAdapter;
         private System.Windows.Forms.BindingSource materiasBindingSource;
         private mixTableAdapters.materiasTableAdapter materiasTableAdapter;
+        private System.Windows.Forms.ComboBox cmbEspecialidad;
     }
 }

@@ -202,12 +202,11 @@ namespace Data.Database
                 while (drMaterias.Read())
                 {
                     Materia mat = new Materia();
-                    mat.ID = (int)drMaterias["id_materia"];
-                    mat.Descripcion = (string)drMaterias["desc_materia"];
-                    mat.HSSemanales = (int)drMaterias["hs_semanales"];
-                    mat.HSTotales = (int)drMaterias["hs_totales"];
-                    mat.IDPlan = (int)drMaterias["id_plan"];
-                    mat.DescripcionPlan = (string)drMaterias["desc_plan"];
+                    mat.ID = drMaterias["id_materia"] != DBNull.Value? (int)drMaterias["id_materia"] : 0;
+                    mat.Descripcion = drMaterias["desc_materia"] != DBNull.Value? (string)drMaterias["desc_materia"] : null;
+                    mat.HSSemanales = drMaterias["hs_semanales"] != DBNull.Value ? (int)drMaterias["hs_Semanales"] : 0;
+                    mat.HSTotales = drMaterias["hs_totales"] != DBNull.Value ? (int)drMaterias["hs_totales"] : 0;
+                    mat.IDPlan = drMaterias["id_plan"] != DBNull.Value ? (int)drMaterias["id_plan"] : 0;
                     materias.Add(mat);
                 }
                 drMaterias.Close();
