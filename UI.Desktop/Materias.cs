@@ -49,5 +49,10 @@ namespace UI.Desktop
             formEspecialidad.ShowDialog();
             this.Listar();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
