@@ -55,7 +55,7 @@ namespace UI.Desktop
             this.txtLegajo.Text = this.AlumnoActual.Legajo.ToString();
             this.txtEmail.Text = this.AlumnoActual.Email;
             this.dtpFechaNacimiento.Value = this.AlumnoActual.FechaNacimiento;
-            //Falta crear abmplanes;
+            
 
             switch (Modo)
             {

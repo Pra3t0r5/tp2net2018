@@ -57,7 +57,7 @@
             this.tblMaterias.ColumnCount = 3;
             this.tblMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.57895F));
             this.tblMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.42105F));
-            this.tblMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.tblMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.tblMaterias.Controls.Add(this.lblId, 0, 0);
             this.tblMaterias.Controls.Add(this.lblDescripcion, 0, 1);
             this.tblMaterias.Controls.Add(this.lblHorasSemanales, 0, 2);
@@ -113,7 +113,7 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(93, 3);
+            this.txtId.Location = new System.Drawing.Point(92, 3);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 20);
@@ -121,21 +121,21 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(93, 32);
+            this.txtDescripcion.Location = new System.Drawing.Point(92, 32);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(187, 20);
             this.txtDescripcion.TabIndex = 5;
             // 
             // nudHsSemanales
             // 
-            this.nudHsSemanales.Location = new System.Drawing.Point(93, 58);
+            this.nudHsSemanales.Location = new System.Drawing.Point(92, 58);
             this.nudHsSemanales.Name = "nudHsSemanales";
             this.nudHsSemanales.Size = new System.Drawing.Size(79, 20);
             this.nudHsSemanales.TabIndex = 6;
             // 
             // nudHsTotales
             // 
-            this.nudHsTotales.Location = new System.Drawing.Point(93, 82);
+            this.nudHsTotales.Location = new System.Drawing.Point(92, 82);
             this.nudHsTotales.Name = "nudHsTotales";
             this.nudHsTotales.Size = new System.Drawing.Size(79, 20);
             this.nudHsTotales.TabIndex = 7;
@@ -161,7 +161,7 @@
             // cmbPlanes
             // 
             this.cmbPlanes.FormattingEnabled = true;
-            this.cmbPlanes.Location = new System.Drawing.Point(93, 108);
+            this.cmbPlanes.Location = new System.Drawing.Point(92, 108);
             this.cmbPlanes.Name = "cmbPlanes";
             this.cmbPlanes.Size = new System.Drawing.Size(187, 21);
             this.cmbPlanes.TabIndex = 9;
@@ -170,7 +170,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(206, 133);
+            this.btnGuardar.Location = new System.Drawing.Point(205, 133);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 10;
@@ -180,7 +180,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(287, 133);
+            this.btnCancelar.Location = new System.Drawing.Point(286, 133);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
