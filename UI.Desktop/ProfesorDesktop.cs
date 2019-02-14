@@ -39,8 +39,8 @@ namespace UI.Desktop
 
         public override void MapearDeDatos() {
             this.txtID.Text = this.ProfesorActual.ID.ToString();
-            this.txtNombre.Text = this.ProfesorActual.Nombre;
-            this.txtApellido.Text = this.ProfesorActual.Apellido;
+            this.lblNombre.Text = this.ProfesorActual.Nombre;
+            this.lblApellido.Text = this.ProfesorActual.Apellido;
             this.txtEmail.Text = this.ProfesorActual.Email;
             this.txtTelefono.Text = this.ProfesorActual.Telefono;
             this.dtpFechaNac.Value = this.ProfesorActual.FechaNacimiento;

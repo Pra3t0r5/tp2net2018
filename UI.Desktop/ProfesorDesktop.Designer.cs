@@ -30,23 +30,23 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.Label();
             this.txtConfirmarClave = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.lblPlan = new System.Windows.Forms.Label();
             this.cmbPlanes = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.lblPlan = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,17 +58,17 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.txtID, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtNombre, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblNombre, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtName, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtApellido, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblApellido, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtUsuario, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtConfirmarClave, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtNombre, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtApellido, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtDireccion, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.cmbPlanes, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblPlan, 2, 0);
@@ -98,15 +98,15 @@
             this.txtID.TabIndex = 0;
             this.txtID.Text = "ID";
             // 
-            // txtNombre
+            // lblNombre
             // 
-            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtNombre.AutoSize = true;
-            this.txtNombre.Location = new System.Drawing.Point(3, 33);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(44, 13);
-            this.txtNombre.TabIndex = 1;
-            this.txtNombre.Text = "Nombre";
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(3, 33);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre";
             // 
             // txtName
             // 
@@ -118,15 +118,15 @@
             this.txtName.TabIndex = 2;
             this.txtName.Text = "Email";
             // 
-            // txtApellido
+            // lblApellido
             // 
-            this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtApellido.AutoSize = true;
-            this.txtApellido.Location = new System.Drawing.Point(265, 33);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(44, 13);
-            this.txtApellido.TabIndex = 6;
-            this.txtApellido.Text = "Apellido";
+            this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(265, 33);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(44, 13);
+            this.lblApellido.TabIndex = 6;
+            this.lblApellido.Text = "Apellido";
             // 
             // txtUsuario
             // 
@@ -177,12 +177,12 @@
             this.textBox1.Size = new System.Drawing.Size(157, 20);
             this.textBox1.TabIndex = 12;
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(102, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(157, 20);
-            this.textBox2.TabIndex = 15;
+            this.txtNombre.Location = new System.Drawing.Point(102, 30);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(157, 20);
+            this.txtNombre.TabIndex = 15;
             // 
             // txtEmail
             // 
@@ -191,12 +191,12 @@
             this.txtEmail.Size = new System.Drawing.Size(157, 20);
             this.txtEmail.TabIndex = 16;
             // 
-            // textBox4
+            // txtApellido
             // 
-            this.textBox4.Location = new System.Drawing.Point(346, 30);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(157, 20);
-            this.textBox4.TabIndex = 17;
+            this.txtApellido.Location = new System.Drawing.Point(346, 30);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(157, 20);
+            this.txtApellido.TabIndex = 17;
             // 
             // txtDireccion
             // 
@@ -204,6 +204,14 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(157, 20);
             this.txtDireccion.TabIndex = 18;
+            // 
+            // cmbPlanes
+            // 
+            this.cmbPlanes.FormattingEnabled = true;
+            this.cmbPlanes.Location = new System.Drawing.Point(346, 3);
+            this.cmbPlanes.Name = "cmbPlanes";
+            this.cmbPlanes.Size = new System.Drawing.Size(157, 21);
+            this.cmbPlanes.TabIndex = 20;
             // 
             // lblPlan
             // 
@@ -214,13 +222,19 @@
             this.lblPlan.TabIndex = 19;
             this.lblPlan.Text = "Plan";
             // 
-            // cmbPlanes
+            // txtTelefono
             // 
-            this.cmbPlanes.FormattingEnabled = true;
-            this.cmbPlanes.Location = new System.Drawing.Point(346, 3);
-            this.cmbPlanes.Name = "cmbPlanes";
-            this.cmbPlanes.Size = new System.Drawing.Size(157, 21);
-            this.cmbPlanes.TabIndex = 20;
+            this.txtTelefono.Location = new System.Drawing.Point(346, 82);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(157, 20);
+            this.txtTelefono.TabIndex = 23;
+            // 
+            // dtpFechaNac
+            // 
+            this.dtpFechaNac.Location = new System.Drawing.Point(102, 82);
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Size = new System.Drawing.Size(157, 20);
+            this.dtpFechaNac.TabIndex = 22;
             // 
             // label1
             // 
@@ -231,20 +245,6 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Fecha Nacimiento";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // dtpFechaNac
-            // 
-            this.dtpFechaNac.Location = new System.Drawing.Point(102, 82);
-            this.dtpFechaNac.Name = "dtpFechaNac";
-            this.dtpFechaNac.Size = new System.Drawing.Size(157, 20);
-            this.dtpFechaNac.TabIndex = 22;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(346, 82);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(157, 20);
-            this.txtTelefono.TabIndex = 23;
             // 
             // ProfesorDesktop
             // 
@@ -264,17 +264,17 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label txtID;
-        private System.Windows.Forms.Label txtNombre;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label txtName;
-        private System.Windows.Forms.Label txtApellido;
+        private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label txtUsuario;
         private System.Windows.Forms.Label txtConfirmarClave;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label lblPlan;
         private System.Windows.Forms.ComboBox cmbPlanes;
