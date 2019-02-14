@@ -24,6 +24,7 @@ namespace UI.Desktop
             InitializeComponent();
             this.materiaLogic = new MateriaLogic();
             this.metodosParaControls = new MetodosParaControls();
+            CargarCombos();
         }
 
         public MateriaDesktop(ModoForm modo) : this()
@@ -148,8 +149,8 @@ namespace UI.Desktop
 
         public void CargarCombos()
         {
-            MateriaLogic mt = new MateriaLogic();
-            this.cmbPlanes.DataSource = mt.GetAllForCombo();
+            PlanLogic pl = new PlanLogic();
+            this.cmbPlanes.DataSource = pl.GetAllForCombo();
             this.cmbPlanes.DisplayMember = "Descripcion";
             this.cmbPlanes.ValueMember = "ID";
         }

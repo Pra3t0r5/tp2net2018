@@ -185,7 +185,7 @@ namespace Data.Database
                 cmdAlumnos.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = psr.Telefono;
                 cmdAlumnos.Parameters.Add("@fechanac", SqlDbType.DateTime).Value = psr.FechaNacimiento;
                 cmdAlumnos.Parameters.Add("@legajo", SqlDbType.Int).Value = psr.Legajo;
-                cmdAlumnos.Parameters.Add("@tipopersona", SqlDbType.Int).Value = psr.TipoPersona;
+                cmdAlumnos.Parameters.Add("@tipopersona", SqlDbType.Int).Value = 2;
                 cmdAlumnos.Parameters.Add("@idplan", SqlDbType.Int).Value = 1;
                 cmdAlumnos.ExecuteNonQuery();
             }

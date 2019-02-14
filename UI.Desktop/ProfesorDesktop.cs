@@ -22,6 +22,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.metodoParaControles = new MetodosParaControls();
+            llenarCombo();
         }
 
         public ProfesorDesktop(ModoForm modo) : this()
@@ -120,6 +121,14 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void llenarCombo()
+        {
+            PlanLogic pl = new PlanLogic();
+            this.cmbPlanes.DataSource = pl.GetAllForCombo();
+            this.cmbPlanes.DisplayMember = "Descripcion";
+            this.cmbPlanes.ValueMember = "ID";
         }
     }
 }

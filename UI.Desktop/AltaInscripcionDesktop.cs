@@ -86,6 +86,7 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.GuardarCambios();
+            this.Close();
         }      
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -133,18 +134,20 @@ namespace UI.Desktop
         {
             ComboBox cmb = (ComboBox)sender;
 
-            if (cmbMateria.SelectedItem != null)
+            if (cmbMateria.SelectedValue != null)
             {
-                idMatActual = int.Parse(cmbMateria.SelectedItem.ToString());
+                idMatActual = int.Parse(cmbMateria.SelectedValue.ToString());
             }
             else
             {
                 idMatActual = 0;
             }
 
-            if (cmbMateria.SelectedItem != null)
+            if (cmbComision.SelectedValue != null)
             {
-                idComActual = int.Parse(cmbComision.SelectedValue.ToString());
+                //idComActual = int.Parse(cmbComision.SelectedValue.ToString());
+                Comision comisionSeleccionada = (Comision)cmbComision.SelectedValue;
+                idComActual = comisionSeleccionada.ID;
             }
             else
             {
@@ -185,7 +188,7 @@ namespace UI.Desktop
         public override void GuardarCambios()
         {
             
-            // ainsLogic.InscribirAlumno(alumnoAInscribir.ID,  );
+          ainsLogic.InscribirAlumno(alumnoAInscribir.ID, idComActual, idMatActual);
 
           
             

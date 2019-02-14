@@ -110,8 +110,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdMaterias = new SqlCommand("INSERT INTO MATERIAS (desc_materia,hs_semanales,hs_totales,id_plan VALUES(@DESCMATERIA,@HSSEMANALES,@HSTOTALES,@IDPLAN)", SqlConn);
-                cmdMaterias.Parameters.Add("@DESCMATERIA", SqlDbType.Int).Value = mat.Descripcion;
+                SqlCommand cmdMaterias = new SqlCommand("INSERT INTO MATERIAS (desc_materia,hs_semanales,hs_totales,id_plan) VALUES(@DESCMATERIA,@HSSEMANALES,@HSTOTALES,@IDPLAN)", SqlConn);
+                cmdMaterias.Parameters.Add("@DESCMATERIA", SqlDbType.VarChar,50).Value = mat.Descripcion;
                 cmdMaterias.Parameters.Add("@HSSEMANALES", SqlDbType.Int).Value = mat.HSSemanales;
                 cmdMaterias.Parameters.Add("@HSTOTALES", SqlDbType.Int).Value = mat.HSTotales;
                 cmdMaterias.Parameters.Add("@IDPLAN", SqlDbType.Int).Value = mat.IDPlan;
@@ -119,7 +119,7 @@ namespace Data.Database
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al agregar usuario", ex);
+                Exception ExcepcionManejada = new Exception("Error al agregar materia", ex);
                 throw ExcepcionManejada;
             }
             finally
