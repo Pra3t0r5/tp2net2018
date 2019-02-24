@@ -188,6 +188,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MateriasController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PlanesController.cs" />
     <Compile Include="Controllers\ProfesoresController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -581,10 +582,11 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Cursos\ReporteCursos.cshtml" />
+    <Content Include="Views\Shared\_LayoutNavbar.cshtml" />
+    <Content Include="Views\Menu\Personal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,15 +1,19 @@
 ﻿@model IEnumerable<UI.WebMvc.Models.PersonaModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Alumnos";
 }
 
-<h2>Index</h2>
+@{
+    @Html.Partial("~/Views/Shared/_LayoutNavbar.cshtml")
+}
+
+<h2>Alumnos</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -47,47 +51,48 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaNacimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Legajo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoPersona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDPlan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescripcionPlan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Error)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Legajo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoPersona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDPlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionPlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Error)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

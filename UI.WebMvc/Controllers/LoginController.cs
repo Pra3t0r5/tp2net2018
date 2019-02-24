@@ -18,7 +18,7 @@ namespace UI.WebMvc.Controllers
         }
 
         [HttpPost]
-        public void Index(FormCollection collection)
+        public ActionResult Index(FormCollection collection)
         {
             LoginLogic lg = new LoginLogic();
             var nombre = collection["NombreUsuario"].ToString();
@@ -27,11 +27,11 @@ namespace UI.WebMvc.Controllers
             if(usr.NombreUsuario != string.Empty)
             {
                 Session["Usuario"] = usr.NombreUsuario;
-                Redirect("/Home");
+                return RedirectToAction("Index","Home");
             }
             else
             {
-                Redirect("/Login");
+                return Redirect("/Login");
             }
         }
     }

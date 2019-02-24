@@ -1,0 +1,25 @@
+﻿@{
+    @Html.Partial("~/Views/Shared/_LayoutNavbar.cshtml")
+}
+
+
+<div class="card col-md-12 col-12">
+    <div class="card-body">
+        <h5 class="card-title">Gestion de usuario</h5>
+        <p class="card-text">Permite la registración,modificacion y borrado de los datos usuario en el sistema</p>
+        @Html.ActionLink("Ingresar", "Index", "Usuarios", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Gestion de alumnos</h5>
+        <p class="card-text">Permite la registración,modificacion y borrado de los datos alumnos en el sistema</p>
+        @Html.ActionLink("Ingresar", "Index", "Alumnos", null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Gestion de usuario</h5>
+        <p class="card-text">Permite la registración,modificacion y borrado de los datos profesores en el sistema</p>
+        <a href="#" class="btn btn-primary">Ingresar</a>
+    </div>
+</div>
+
+
+
