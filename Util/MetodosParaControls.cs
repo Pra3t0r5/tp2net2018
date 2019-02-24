@@ -32,6 +32,14 @@ namespace Util
                         {
                             switch (((TextBox)control).Name)
                             {
+                                case "txtLegajo":
+                                    if(((TextBox)control).TextLength > 6){
+                                        this.AvisarLongCaractExcedida();
+                                        return false;
+                                    }
+                                    else{
+                                        continue;
+                                    }
                                 case "txtClave":
                                     if (((TextBox)control).TextLength >= 8)
                                     {
@@ -118,6 +126,11 @@ namespace Util
         private void AvisarNumericUpDownCero()
         {
             MessageBox.Show("Asegurese de que los campos numericos no esten en su valor por defecto (Cero)", "Error, campos inalterados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void AvisarLongCaractExcedida()
+        {
+            MessageBox.Show("Ah excedido la cantidad de caracteres permitida, reintente.", "Error, limite excedido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

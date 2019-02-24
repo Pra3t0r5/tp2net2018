@@ -33,5 +33,9 @@ namespace Business.Logic
             this.UsuarioData.Save(usuario);
         }
 
+        public int getPermissionByID(Usuario usr)
+        {
+            return this.UsuarioData.getPermissionByID(usr);
+        }
     }
 }

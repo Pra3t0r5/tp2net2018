@@ -15,13 +15,14 @@ namespace UI.Desktop
 {
     public partial class ProfesorDesktop : ApplicationForm
     {
-        public Usuario ProfesorActual {get; set; }
+        public Persona ProfesorActual {get; set; }
         private MetodosParaControls metodoParaControles { get; set; }
         
         public ProfesorDesktop()
         {
             InitializeComponent();
             this.metodoParaControles = new MetodosParaControls();
+            llenarCombo();
         }
 
         public ProfesorDesktop(ModoForm modo) : this()
@@ -31,19 +32,20 @@ namespace UI.Desktop
         public ProfesorDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
-            UsuarioLogic ul = new UsuarioLogic();
+            ProfesorLogic ul = new ProfesorLogic();
             this.ProfesorActual = ul.GetOne(ID);
             this.MapearDeDatos();
         }
 
         public override void MapearDeDatos() {
             this.txtID.Text = this.ProfesorActual.ID.ToString();
-            this.chkHabilitado.Checked = this.ProfesorActual.Habilitado;
-            this.txtNombre.Text = this.ProfesorActual.Nombre;
-            this.txtApellido.Text = this.ProfesorActual.Apellido;
-            this.txtEmail.Text = this.ProfesorActual.EMail;
-            this.txtUsuario.Text = this.ProfesorActual.NombreUsuario;
-            this.txtClave.Text = this.ProfesorActual.Clave;
+            this.lblNombre.Text = this.ProfesorActual.Nombre;
+            this.lblApellido.Text = this.ProfesorActual.Apellido;
+            this.txtEmail.Text = this.ProfesorActual.Email;
+            this.txtTelefono.Text = this.ProfesorActual.Telefono;
+            this.dtpFechaNac.Value = this.ProfesorActual.FechaNacimiento;
+            this.cmbPlanes.SelectedValue = this.ProfesorActual.IDPlan;
+
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -64,17 +66,18 @@ namespace UI.Desktop
         {
             if (Modo == ModoForm.Alta)
             {
-                Usuario prf = new Usuario();
+                Persona prf = new Persona();
                 this.ProfesorActual = prf;
             }
             if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
                 ProfesorActual.Nombre = this.txtNombre.Text;
                 ProfesorActual.Apellido = this.txtApellido.Text;
-                ProfesorActual.EMail = this.txtEmail.Text;
-                ProfesorActual.NombreUsuario = this.txtUsuario.Text;
-                ProfesorActual.Clave = this.txtClave.Text;
-                ProfesorActual.Habilitado = this.chkHabilitado.Checked;
+                ProfesorActual.Email = this.txtEmail.Text;
+                ProfesorActual.Direccion = this.txtDireccion.Text;
+                ProfesorActual.Telefono = this.txtTelefono.Text;
+                ProfesorActual.FechaNacimiento = dtpFechaNac.Value.Date;
+                ProfesorActual.IDPlan = Convert.ToInt32(cmbPlanes.SelectedValue);
                 if (Modo == ModoForm.Modificacion)
                 {
                     ProfesorActual.ID = Convert.ToInt32(this.txtID.Text);
@@ -104,8 +107,8 @@ namespace UI.Desktop
             if (this.Validar())
             {
                 this.MapearADatos();
-                UsuarioLogic ul = new UsuarioLogic();
-                ul.Save(this.ProfesorActual);
+                ProfesorLogic pl = new ProfesorLogic();
+                pl.Save(this.ProfesorActual);
                 this.Close();
             }
         }
@@ -120,6 +123,24 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void llenarCombo()
+        {
+            PlanLogic pl = new PlanLogic();
+            this.cmbPlanes.DataSource = pl.GetAllForCombo();
+            this.cmbPlanes.DisplayMember = "Descripcion";
+            this.cmbPlanes.ValueMember = "ID";
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

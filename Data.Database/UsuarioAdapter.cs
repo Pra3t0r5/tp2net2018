@@ -49,6 +49,36 @@ namespace Data.Database
             
         }
 
+        public int getPermissionByID(Usuario usr)
+        {
+            int tipoPersona = 0;
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdUsuarios = new SqlCommand(
+                    "SELECT * FROM USUARIOS u" + 
+                    "INNER JOIN personas p ON u.id_persona = p.id_persona" +
+                    "WHERE id_usuario = @id", SqlConn);
+                cmdUsuarios.Parameters.Add("@id", SqlDbType.Int).Value = usr.ID;
+                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+                if (drUsuarios.Read())
+                {
+                    tipoPersona = (int)drUsuarios["tipo_persona"];                   
+                }
+                drUsuarios.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuario", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return tipoPersona;
+        }
+
         public Usuario GetOne(int ID)
         {
             Usuario usr = new Usuario();
