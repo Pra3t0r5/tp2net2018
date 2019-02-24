@@ -8,38 +8,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Logic;
 
 namespace UI.Desktop
 {
     public partial class PantallaPrincipal : Form
     {
         private Usuario UsuarioLogin { get; set; }
+        private UsuarioLogic ul { get; set; }
+
         public PantallaPrincipal()
         {
             InitializeComponent();
+            
+
         }
 
         public PantallaPrincipal(Usuario usr)
         {
             InitializeComponent();
-            this.UsuarioLogin = usr;
+            this.UsuarioLogin = usr;            
+           // SetearPermisos(usr);
         }
+        
 
         public void SetearPermisos(Usuario usr)
         {
-           if(usr.IDPersona.HasValue)
-            {
-                switch(usr.TipoPersona)
+   //       if(usr.IDPersona.HasValue)
+    //      {
+                int permiso = ul.getPermissionByID(usr);
+                switch (permiso)
                 {
-                    case 1: this.btnAnotarAlumno.Enabled = false;  // 1 = Profesor
+                    case 1: this.btnAnotarAlumno.Enabled = true;  // 1 = Profesor
+                            this.btnInscribirAlCursado.Enabled = false;
+                            this.btnInscribirAlCursado.Visible = false;
 
                         break;
 
-                    case 2: this.toolStripContainer1.Enabled = false;                                        // 2 = Alumno
+                    case 2: this.btnAnotarAlumno.Enabled = false;           // 2 = Alumno
+                            this.btnAnotarAlumno.Visible = false;
+                            this.btnInscribirAlCursado.Enabled = true;
 
                         break;
                 }
-            }
+ //         }
         }
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,6 +119,13 @@ namespace UI.Desktop
             Materias materias = new Materias();
             materias.ShowDialog();
             materias.Dispose();
+        }
+
+        private void btnInscribirAlCursado_Click(object sender, EventArgs e)
+        {
+            AltaInscripcionDesktop altaInsc = new AltaInscripcionDesktop();
+            altaInsc.ShowDialog();
+            altaInsc.Close();
         }
     }
 }

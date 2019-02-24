@@ -43,6 +43,7 @@
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comisionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnInscribirAlCursado = new System.Windows.Forms.Button();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnInscribirAlCursado);
             this.groupBox1.Controls.Add(this.btnAnotarAlumno);
             this.groupBox1.Location = new System.Drawing.Point(29, 22);
             this.groupBox1.Name = "groupBox1";
@@ -185,6 +187,16 @@
             this.comisionesToolStripMenuItem1.Text = "Comisiones";
             this.comisionesToolStripMenuItem1.Click += new System.EventHandler(this.comisionesToolStripMenuItem1_Click);
             // 
+            // btnInscribirAlCursado
+            // 
+            this.btnInscribirAlCursado.Location = new System.Drawing.Point(158, 142);
+            this.btnInscribirAlCursado.Name = "btnInscribirAlCursado";
+            this.btnInscribirAlCursado.Size = new System.Drawing.Size(404, 23);
+            this.btnInscribirAlCursado.TabIndex = 1;
+            this.btnInscribirAlCursado.Text = "Inscribirme al cursado";
+            this.btnInscribirAlCursado.UseVisualStyleBackColor = true;
+            this.btnInscribirAlCursado.Click += new System.EventHandler(this.btnInscribirAlCursado_Click);
+            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripLabel3;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem1;
+        private System.Windows.Forms.Button btnInscribirAlCursado;
     }
 }
