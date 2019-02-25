@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace UI.WebMvc.App_Start
 {
@@ -20,7 +21,8 @@ namespace UI.WebMvc.App_Start
             // Check for authorization
             if (HttpContext.Current.Session["Usuario"] == null)
             {
-                filterContext.Result = new HttpUnauthorizedResult();
+                filterContext.Result = new RedirectToRouteResult(new
+                RouteValueDictionary(new { controller = "Login" }));
             }
         }
     }

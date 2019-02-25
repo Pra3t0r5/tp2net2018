@@ -17,18 +17,30 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdLogin = new SqlCommand("select * from usuarios where nombre_usuario = @nombre and clave = @clave",SqlConn);
+                SqlCommand cmdLogin = new SqlCommand("select * from usuarios u inner join personas p on p.id_persona = u.id_persona where nombre_usuario = @nombre and clave = @clave",SqlConn);
                 cmdLogin.Parameters.Add("@nombre",SqlDbType.VarChar,50).Value = usuario;
                 cmdLogin.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = pw;
                 SqlDataReader drLogin = cmdLogin.ExecuteReader();
                   if(drLogin.Read())
                   {
 
+                    usr.ID = (int)drLogin["id_usuario"];
                     usr.NombreUsuario = (string)drLogin["nombre_usuario"];
-                      usr.Habilitado = (bool)drLogin["habilitado"];
-                      
-                      
-                  }
+                    usr.Habilitado = (bool)drLogin["habilitado"];
+                    usr.Nombre = (string)drLogin["nombre"];
+                    usr.Apellido = (string)drLogin["apellido"];
+                    if (drLogin["email"] != DBNull.Value)
+                    {
+                        usr.EMail = (string)drLogin["email"];
+                    }
+                    else
+                    {
+                        usr.EMail = null;
+                    }
+                    usr.IDPersona = (int)drLogin["id_persona"];
+                    usr.TipoPersona = (int)drLogin["tipo_persona"];
+              
+                }
                 drLogin.Close();
                 return usr;
             }

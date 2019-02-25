@@ -3,17 +3,20 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Academia</a>
+        <a class="navbar-brand" href="~/Home">Academia</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="~/Home">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Personal","Personal", "Menu", null, new { @class = "nav-link" })
-            
+                @Html.ActionLink("Personal", "Personal", "Menu", null, new { @class = "nav-link" })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Administracion", "Personal", "Menu", null, new { @class = "nav-link" })
+                @Html.ActionLink("Administracion", "Administracion", "Menu", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Salir", "FinalizarSesion", "Login", null, new { @class = "nav-link" })
+                <span class="sr-only"></span>
             </li>
         </ul>
     </div>

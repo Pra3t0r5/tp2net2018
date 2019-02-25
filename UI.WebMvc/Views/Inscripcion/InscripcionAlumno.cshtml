@@ -1,0 +1,42 @@
+﻿@model IEnumerable<UI.WebMvc.Models.MateriaModel>
+@{
+    @Html.Partial("~/Views/Shared/_LayoutNavbar.cshtml")
+}
+
+
+<table id="table" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Materia</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Seleccionar", "ComisionesMateria", "Inscripcion", new { idmateria = item.ID, idplan = item.IDPlan }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                "language": {
+                    "search": "Buscar"
+                }
+            })
+        });
+    </script>
+}
+

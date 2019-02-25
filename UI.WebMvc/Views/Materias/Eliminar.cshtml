@@ -2,13 +2,13 @@
 
 @{
     ViewBag.Title = "Eliminar";
+
 }
 
 <h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>MateriaModel</h4>
+<h3>Desea eliminar la materia seleccionada?</h3>
+<div class="col-md-4 col-12">
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -58,7 +58,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Volver a la lista de materias", "Index")
         </div>
     }
 </div>

@@ -66,5 +66,11 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            PlanLogic pl = new PlanLogic();
+            dgvPlanes.DataSource = pl.GetAll().Select(x => x.Descripcion);
+        }
     }
 }

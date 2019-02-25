@@ -88,7 +88,7 @@ namespace UI.WebMvc.Controllers
         }
 
         // GET: Planes/Delete/5
-        public ActionResult Borrar(int id)
+        public ActionResult Eliminar(int id)
         {
             var plan = this.planLogic.GetOne(id);
             var model = new Models.Plan(plan);
@@ -97,7 +97,7 @@ namespace UI.WebMvc.Controllers
 
         // POST: Planes/Delete/5
         [HttpPost]
-        public ActionResult Borrar(int id, FormCollection collection)
+        public ActionResult Eliminar(int id, FormCollection collection)
         {
             try
             {

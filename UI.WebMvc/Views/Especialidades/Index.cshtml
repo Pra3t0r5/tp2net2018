@@ -1,9 +1,12 @@
 ﻿@model IEnumerable<UI.WebMvc.Models.Especialidad>
 
 @{
-    /**/
+                /**/
 
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
+              
 }
 
 <h2>Especialidades</h2>
@@ -36,13 +39,12 @@
                 </td>
                 <td>
                     @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                     @Html.ActionLink("Borrar", "Borrar", new { id = item.ID })
                 </td>
             </tr>
         }
     </tbody>
-    
+
 
 </table>
 

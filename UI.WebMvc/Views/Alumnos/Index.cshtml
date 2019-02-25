@@ -2,11 +2,10 @@
 
 @{
     ViewBag.Title = "Alumnos";
+
 }
 
-@{
-    @Html.Partial("~/Views/Shared/_LayoutNavbar.cshtml")
-}
+
 
 <h2>Alumnos</h2>
 
@@ -88,9 +87,8 @@
                 @Html.DisplayFor(modelItem => item.Error)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.ID })
             </td>
         </tr>
     }

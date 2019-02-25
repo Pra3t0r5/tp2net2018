@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Editar";
+  
 }
 
 <h2>Editar</h2>
@@ -9,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ComisionesModel</h4>
         <hr />
@@ -18,7 +19,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4 col-12">
                 @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
             </div>
@@ -26,7 +27,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.AnioEspecialidad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4 col-12">
                 @Html.EditorFor(model => model.AnioEspecialidad, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.AnioEspecialidad, "", new { @class = "text-danger" })
             </div>
@@ -34,7 +35,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.IDPlan, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4 col-12">
                 @Html.EditorFor(model => model.IDPlan, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.IDPlan, "", new { @class = "text-danger" })
             </div>
@@ -42,7 +43,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.DescripcionPlan, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4 col-12">
                 @Html.EditorFor(model => model.DescripcionPlan, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DescripcionPlan, "", new { @class = "text-danger" })
             </div>

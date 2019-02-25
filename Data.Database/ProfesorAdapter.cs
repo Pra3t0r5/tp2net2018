@@ -66,15 +66,16 @@ namespace Data.Database
                     psr.ID = (int)drProfesores["id_persona"];
                     psr.Nombre = (string)drProfesores["nombre"];
                     psr.Apellido = (string)drProfesores["apellido"];
-                    psr.Direccion = (string)drProfesores["direccion"];
-                    psr.Email = (string)drProfesores["email"];
-                    psr.Telefono = (string)drProfesores["telefono"];
                     psr.FechaNacimiento = (DateTime)drProfesores["fecha_nac"];
-                    psr.Legajo = (int)drProfesores["legajo"];
-                    psr.TipoPersona = (int)drProfesores["legajo"];
+                    psr.TipoPersona = (int)drProfesores["tipo_persona"];
                     psr.IDPlan = (int)drProfesores["id_plan"];
+                    psr.Direccion = drProfesores["direccion"] != DBNull.Value ? (string)drProfesores["direccion"] : null;
+                    psr.Telefono = drProfesores["telefono"] != DBNull.Value ? (string)drProfesores["telefono"] : null;
+                    psr.Legajo = drProfesores["legajo"] != DBNull.Value ? (int)drProfesores["legajo"] : 0;
+                    psr.Email = drProfesores["email"] != DBNull.Value ? (string)drProfesores["email"] : null;
                 }
                 drProfesores.Close();
+                return psr;
             }
             catch (Exception Ex)
             {
@@ -85,7 +86,6 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-            return psr;
         }
 
         public void Delete(int ID)

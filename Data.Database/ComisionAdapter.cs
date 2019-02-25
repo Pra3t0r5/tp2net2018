@@ -41,6 +41,7 @@ namespace Data.Database
             }
         }
 
+
         public Comision GetOne(int ID)
         {
             Comision comi = new Comision();
@@ -192,6 +193,8 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+
+      
 
 
     }

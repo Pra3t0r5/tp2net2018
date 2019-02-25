@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using UI.WebMvc.Models;
 
 namespace UI.WebMvc.Controllers
@@ -26,7 +27,7 @@ namespace UI.WebMvc.Controllers
             var usr = lg.ValidateUser(nombre, clave);
             if(usr.NombreUsuario != string.Empty)
             {
-                Session["Usuario"] = usr.NombreUsuario;
+                Session["Usuario"] = usr;
                 return RedirectToAction("Index","Home");
             }
             else
@@ -34,5 +35,13 @@ namespace UI.WebMvc.Controllers
                 return Redirect("/Login");
             }
         }
+
+        public ActionResult FinalizarSesion()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
+
     }
 }

@@ -19,7 +19,7 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdCursos = new SqlCommand("SELECT * FROM CURSOS C INNER JOIN materias m on m.id_materia = c.id_materia inner join comisiones co on c.id_comision = co.id_comision", SqlConn);
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
-                while(drCursos.Read())
+                while (drCursos.Read())
                 {
                     Curso cur = new Curso();
                     cur.ID = (int)drCursos["id_curso"];
@@ -34,9 +34,9 @@ namespace Data.Database
                 drCursos.Close();
                 return cursos;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar los cursos",ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar los cursos", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -54,7 +54,7 @@ namespace Data.Database
                 SqlCommand cmdCurso = new SqlCommand("SELECT * FROM CURSOS C INNER JOIN materias m on m.id_materia = c.id_materia inner join comisiones co on c.id_comision = co.id_comision WHERE c.id_curso = @id", SqlConn);
                 cmdCurso.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drCurso = cmdCurso.ExecuteReader();
-                if(drCurso.Read())
+                if (drCurso.Read())
                 {
                     cur.ID = (int)drCurso["id_curso"];
                     cur.IDComision = (int)drCurso["id_comision"];
@@ -67,9 +67,9 @@ namespace Data.Database
                 drCurso.Close();
                 return cur;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar curso",ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar curso", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -115,7 +115,7 @@ namespace Data.Database
                 cmdCurso.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdCurso.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al eliminar curso", ex);
                 throw ExcepcionManejada;
@@ -139,7 +139,7 @@ namespace Data.Database
                 cmdCurso.Parameters.Add("@cupo", SqlDbType.Int).Value = cur.Cupo;
                 cmdCurso.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al actualizar curso", ex);
                 throw ExcepcionManejada;
@@ -162,9 +162,9 @@ namespace Data.Database
                 cmdCurso.Parameters.Add("@cupo", SqlDbType.Int).Value = cur.Cupo;
                 cmdCurso.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al insertar un nuevo curso",ex);
+                Exception ExcepcionManejada = new Exception("Error al insertar un nuevo curso", ex);
             }
             finally
             {
@@ -187,6 +187,46 @@ namespace Data.Database
                 this.Update(curso);
             }
             curso.State = BusinessEntity.States.Unmodified;
+        }
+
+        public List<Curso> GetCursosByMateria(int idmateria, int idplan)
+        {
+            List<Curso> cursos = new List<Curso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCurso = new SqlCommand("SELECT * FROM CURSOS C INNER JOIN materias m on m.id_materia = c.id_materia inner join comisiones co on c.id_comision = co.id_comision WHERE m.id_materia = @id and m.id_plan = @idplan", SqlConn);
+                cmdCurso.Parameters.Add("@id", SqlDbType.Int).Value = idmateria;
+                cmdCurso.Parameters.Add("@idplan", SqlDbType.Int).Value = idplan;
+                SqlDataReader drCurso = cmdCurso.ExecuteReader();
+                while (drCurso.Read())
+                {
+                    Curso cur = new Curso();
+                    cur.ID = (int)drCurso["id_curso"];
+                    cur.IDComision = (int)drCurso["id_comision"];
+                    cur.IDMateria = (int)drCurso["id_materia"];
+                    cur.AnioCalendario = (int)drCurso["anio_calendario"];
+                    cur.DescripcionComision = (string)drCurso["desc_comision"];
+                    cur.DescripcionMateria = (string)drCurso["desc_materia"];
+                    cur.Cupo = (int)drCurso["cupo"];
+                    cursos.Add(cur);
+                }
+                drCurso.Close();
+                return cursos;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar cursos", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+
+
+
+
+            }
         }
     }
 }

@@ -41,6 +41,9 @@
             this.tsNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsModificar = new System.Windows.Forms.ToolStripButton();
             this.tsEliminar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtBusqueda = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tsPlanes.ContentPanel.SuspendLayout();
             this.tsPlanes.TopToolStripPanel.SuspendLayout();
             this.tsPlanes.SuspendLayout();
@@ -154,10 +157,13 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsNuevo,
             this.tsModificar,
-            this.tsEliminar});
+            this.tsEliminar,
+            this.toolStripSeparator1,
+            this.txtBusqueda,
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(112, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(262, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // tsNuevo
@@ -189,6 +195,24 @@
             this.tsEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsEliminar.Text = "toolStripButton3";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.AcceptsReturn = true;
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(100, 25);
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel1.Text = "Buscar";
             // 
             // Planes
             // 
@@ -225,5 +249,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn especialidad;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox txtBusqueda;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }

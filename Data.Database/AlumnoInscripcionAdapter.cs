@@ -150,7 +150,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdInscripcion = new SqlCommand("INSERT INTO alumnos_inscripiones values (@idalumno,@idcurso,'Inscripto',null)",SqlConn);
+                SqlCommand cmdInscripcion = new SqlCommand("INSERT INTO alumnos_inscripciones values (@idalumno,@idcurso,'Inscripto',null)",SqlConn);
                 cmdInscripcion.Parameters.Add("@idalumno",SqlDbType.Int).Value = IDpersona;
                 cmdInscripcion.Parameters.Add("@idcurso", SqlDbType.Int).Value = IDCurso;
                 cmdInscripcion.ExecuteNonQuery();

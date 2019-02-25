@@ -40,6 +40,42 @@ namespace Data.Database
             }
         }
 
+        public List<Materia> GetAllMateriasNoInscripctasByAlumno(int id)
+        {
+            List<Materia> materias = new List<Materia>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdMaterias = new SqlCommand("select * from  materias where id_materia not in (select distinct c.id_materia from personas p " +
+                    "inner join alumnos_inscripciones ai on p.id_persona = ai.id_alumno inner join cursos c on c.id_curso = ai.id_curso where ai.id_alumno = @id)",SqlConn);
+                cmdMaterias.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
+                while (drMaterias.Read())
+                {
+                    Materia mat = new Materia();
+                    mat.ID = (int)drMaterias["id_materia"];
+                    mat.Descripcion = (string)drMaterias["desc_materia"];
+                    mat.HSSemanales = (int)drMaterias["hs_semanales"];
+                    mat.HSTotales = (int)drMaterias["hs_totales"];
+                    mat.IDPlan = (int)drMaterias["id_plan"];
+                    materias.Add(mat);
+                }
+                drMaterias.Close();
+                return materias;
+            }
+            catch(Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al traer materias", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+
+
         public List<Materia> GetAll()
         {
             List<Materia> materias = new List<Materia>();

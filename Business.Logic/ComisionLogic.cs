@@ -56,9 +56,7 @@ namespace Business.Logic
 
                 Exception ExcepcionManejada = new Exception("Error al eliminar la comision", ex);
                 throw ExcepcionManejada;
-            }
-           
-            
+            }         
         }
 
         public List<Comision> GetAllCombo()

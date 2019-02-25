@@ -47,5 +47,12 @@ namespace Business.Logic
             return this.MateriaData.GetAllByIdPlan(idPlan);
         }
 
+        public List<Materia> GetAllMateriasNoInscripctasByAlumno(int id)
+        {
+            return this.MateriaData.GetAllMateriasNoInscripctasByAlumno(id);
+        }
+
+ 
+
     }
 }

@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<UI.WebMvc.Models.MateriaModel>
 
 @{
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
+               
 }
 
-<h2>Index</h2>
+<h2>Materias</h2>
 
 <p>
     @Html.ActionLink("Create New", "Nuevo")
@@ -29,29 +32,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDPlan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HSSemanales)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HSTotales)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescripcionPlan)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.ID })
-        </td>
-    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IDPlan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HSSemanales)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HSTotales)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DescripcionPlan)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
+        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.ID })
+    </td>
+</tr>
 }
 
 </table>

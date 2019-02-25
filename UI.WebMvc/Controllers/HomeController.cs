@@ -13,11 +13,13 @@ namespace UI.WebMvc.Controllers
 {
     public class HomeController : Controller
     {
+        [AuthorizationFilter]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

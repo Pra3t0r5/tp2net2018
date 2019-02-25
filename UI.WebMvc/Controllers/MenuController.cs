@@ -13,5 +13,10 @@ namespace UI.WebMvc.Controllers
         {
             return View();
         }
+
+        public ActionResult Administracion()
+        {
+            return View();
+        }
     }
 }

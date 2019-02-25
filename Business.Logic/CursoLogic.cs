@@ -46,5 +46,10 @@ namespace Business.Logic
             }
             
         }
+
+        public List<Curso> GetCursosByMateria(int idmateria,int idplan)
+        {
+            return this.CursoData.GetCursosByMateria(idmateria, idplan);
+        }
     }
 }
