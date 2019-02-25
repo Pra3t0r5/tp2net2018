@@ -37,5 +37,10 @@ namespace Business.Logic
         {
             return this.UsuarioData.getPermissionByID(usr);
         }
+
+        public void Delete(int ID)
+        {
+            this.UsuarioData.Delete(ID);
+        }
     }
 }

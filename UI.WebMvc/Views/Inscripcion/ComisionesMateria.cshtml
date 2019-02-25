@@ -1,36 +1,38 @@
 ﻿@model IEnumerable<UI.WebMvc.Models.CursoModel>
 @{
-    @Html.Partial("~/Views/Shared/_LayoutNavbar.cshtml")
+
 }
 
 
-@if (!Model.Any())
+@if (Model.Any())
 {
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Comisiones</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-
-        @foreach (var item in Model)
-        {
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescripcionComision)
-                </td>
-                <td>
-                    @Html.ActionLink("Seleccionar", "GenerarInscripcion", "Inscripcion", new { idcurso = item.ID }, new { @class = "btn btn-primary" })
-                </td>
+                <th>Comisiones</th>
+                <th>Acciones</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionComision)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Seleccionar", "GenerarInscripcion", "Inscripcion", new { idcurso = item.ID }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 else
 {
     <h1>No hay comisiones cargadas para inscribir por el momento.</h1>
 }
+
+
 

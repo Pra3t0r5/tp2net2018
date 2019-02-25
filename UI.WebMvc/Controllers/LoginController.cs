@@ -25,7 +25,7 @@ namespace UI.WebMvc.Controllers
             var nombre = collection["NombreUsuario"].ToString();
             var clave = collection["Clave"].ToString();
             var usr = lg.ValidateUser(nombre, clave);
-            if(usr.NombreUsuario != string.Empty)
+            if(!string.IsNullOrEmpty(usr.NombreUsuario))
             {
                 Session["Usuario"] = usr;
                 return RedirectToAction("Index","Home");

@@ -18,5 +18,10 @@ namespace UI.WebMvc.Controllers
         {
             return View();
         }
+
+        public ActionResult Cursada()
+        {
+            return View();
+        }
     }
 }

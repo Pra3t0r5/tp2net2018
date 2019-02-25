@@ -537,10 +537,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Especialidades\Index.cshtml" />
     <Content Include="Views\Especialidades\Nuevo.cshtml" />
     <Content Include="Views\Especialidades\Editar.cshtml" />
@@ -588,6 +585,12 @@
     <Content Include="Views\Menu\Administracion.cshtml" />
     <Content Include="Views\Inscripcion\InscripcionAlumno.cshtml" />
     <Content Include="Views\Inscripcion\ComisionesMateria.cshtml" />
+    <Content Include="Views\Usuarios\Editar.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Eliminar.cshtml" />
+    <Content Include="Views\Inscripcion\InscribirAlumno.cshtml" />
+    <Content Include="Views\Menu\Cursada.cshtml" />
+    <Content Include="Views\Usuarios\Nuevo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

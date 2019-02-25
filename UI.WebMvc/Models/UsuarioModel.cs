@@ -19,6 +19,13 @@ namespace UI.WebMvc.Models
         public  UsuarioModel(Usuario usuario)
         {
             this.Nombre = usuario.Nombre;
+            this.NombreUsuario = usuario.NombreUsuario;
+            this.ID = usuario.ID;
+            this.Clave = usuario.Clave;
+            this.Apellido = usuario.Apellido;
+            this.EMail = usuario.EMail;
+            this.Habilitado = usuario.Habilitado;
+            this.IDPersona = usuario.IDPersona;
         }
 
         public string NombreUsuario

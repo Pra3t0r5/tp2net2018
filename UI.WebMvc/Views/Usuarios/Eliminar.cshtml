@@ -1,0 +1,84 @@
+﻿@model UI.WebMvc.Models.UsuarioModel
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar</title>
+</head>
+<body>
+    <h3>Esta seguro de querer eliminar el usuario seleccionado?</h3>
+    <div class="col-md-4 col-12">
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreUsuario)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NombreUsuario)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Clave)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Clave)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Apellido)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EMail)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EMail)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Habilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Habilitado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IDPersona)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IDPersona)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Volver a la lista de usuarios", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

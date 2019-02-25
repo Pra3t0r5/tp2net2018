@@ -29,19 +29,19 @@ namespace UI.WebMvc.Controllers
             return View();
         }
 
-        // GET: Profesores/Create
+       
         public ActionResult Nuevo()
         {
             return View(this.GetModel());
         }
 
-        // POST: Profesores/Create
+  
         [HttpPost]
         public ActionResult Nuevo(FormCollection collection)
         {
             try
             {
-                this.AlumnoLogic.Save(this.ProfesorToBusiness(collection, Business.Entities.BusinessEntity.States.New));
+                this.AlumnoLogic.Save(this.AlumnoToBusiness(collection, Business.Entities.BusinessEntity.States.New));
 
                 return RedirectToAction("Index");
             }
@@ -51,7 +51,7 @@ namespace UI.WebMvc.Controllers
             }
         }
 
-        // GET: Profesores/Edit/5
+      
         public ActionResult Editar(int id)
         {
             var model = this.GetModel(id);
@@ -59,15 +59,13 @@ namespace UI.WebMvc.Controllers
             return View(model);
         }
 
-        // POST: Profesores/Edit/5
+        
         [HttpPost]
         public ActionResult Editar(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
-                this.AlumnoLogic.Save(this.ProfesorToBusiness(collection, Business.Entities.BusinessEntity.States.Modified));
-
+                this.AlumnoLogic.Save(this.AlumnoToBusiness(collection, Business.Entities.BusinessEntity.States.Modified));
                 return RedirectToAction("Index");
             }
             catch
@@ -76,13 +74,11 @@ namespace UI.WebMvc.Controllers
             }
         }
 
-        // GET: Profesores/Delete/5
         public ActionResult Eliminar(int id)
         {
             return View(this.GetModel(id));
         }
 
-        // POST: Profesores/Delete/5
         [HttpPost]
         public ActionResult Eliminar(int id, FormCollection collection)
         {
@@ -135,7 +131,7 @@ namespace UI.WebMvc.Controllers
             return models;
         }
 
-        public Business.Entities.Persona ProfesorToBusiness(FormCollection collection, Business.Entities.BusinessEntity.States estado)
+        public Business.Entities.Persona AlumnoToBusiness(FormCollection collection, Business.Entities.BusinessEntity.States estado)
         {
             Business.Entities.Persona persona = new Business.Entities.Persona();
             persona.Nombre = collection["Nombre"].ToString();
