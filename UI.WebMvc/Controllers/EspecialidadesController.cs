@@ -88,15 +88,8 @@ namespace UI.WebMvc.Controllers
         [HttpPost]
         public ActionResult Borrar(int id, FormCollection collection)
         {
-            try
-            {
                 this.especialidadLogic.Delete(id);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         private Business.Entities.Especialidad MapEspecialidadToBussiness(FormCollection collection, Business.Entities.BusinessEntity.States estado)
