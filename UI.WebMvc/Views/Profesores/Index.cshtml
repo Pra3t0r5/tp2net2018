@@ -12,22 +12,22 @@
 <table class="table table-striped table-dark">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Apellido)
+           Apellido
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Direccion)
+            Dirección
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            E-Mail
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
+            Fecha de Nacimiento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Legajo)
+            Legajo
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TipoPersona)
@@ -36,7 +36,7 @@
             @Html.DisplayNameFor(model => model.Telefono)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DescripcionPlan)
+            Plan
         </th>
         <th></th>
     </tr>
@@ -56,7 +56,7 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FechaNacimiento.Date)
+            @Html.DisplayFor(modelItem => item.FechaNacimiento.Date.Date)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Legajo)

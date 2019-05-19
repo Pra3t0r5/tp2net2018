@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using UI.WebMvc.Models;
 using Util;
 
 namespace UI.WebMvc.Controllers
@@ -48,11 +49,11 @@ namespace UI.WebMvc.Controllers
 
         // POST: Planes/Create
         [HttpPost]
-        public ActionResult Nuevo(FormCollection collection)
+        public ActionResult Nuevo(Plan planNuevo)
         {
             try
             {
-                var plan = this.PlanToBusiness(collection, Business.Entities.BusinessEntity.States.New);
+                var plan = this.PlanToBusiness(planNuevo, Business.Entities.BusinessEntity.States.New);
                 this.planLogic.Save(plan);
                 return RedirectToAction("Index");
             }
@@ -73,11 +74,11 @@ namespace UI.WebMvc.Controllers
 
         // POST: Planes/Edit/5
         [HttpPost]
-        public ActionResult Editar(int id, FormCollection collection)
+        public ActionResult Editar(Plan planpar)
         {
             try
             {
-                var esp = this.PlanToBusiness(collection, Business.Entities.BusinessEntity.States.Modified);
+                var esp = this.PlanToBusiness(planpar, Business.Entities.BusinessEntity.States.Modified);
                 this.planLogic.Save(esp);
                 return RedirectToAction("Index");
             }
@@ -148,14 +149,14 @@ namespace UI.WebMvc.Controllers
             return items;
         }
 
-        public Business.Entities.Plan PlanToBusiness(FormCollection collection, Business.Entities.BusinessEntity.States estado)
+        public Business.Entities.Plan PlanToBusiness(Plan planpar, Business.Entities.BusinessEntity.States estado)
         {
             Business.Entities.Plan plan = new Business.Entities.Plan();
-            plan.Descripcion = collection["Descripcion"].ToString();
-            plan.IDEspecialdad = Convert.ToInt32(collection["IDEspecialidad"]);
+            plan.Descripcion = planpar.Descripcion;
+            plan.IDEspecialdad = planpar.IDEspecialidad;
             plan.State = estado;
             if (estado == Business.Entities.BusinessEntity.States.Modified)
-                plan.ID = Convert.ToInt32(collection["ID"]);
+                plan.ID = planpar.ID;
             return plan;
         }
         

@@ -1,48 +1,31 @@
 ﻿@model UI.WebMvc.Models.Plan
-
-@{
-    ViewBag.Title = "Nuevo";
-    @Html.Partial("~/Views/Shared/_LayoutNavbar.cshtml")
-}
-
-<h2>Nuevo</h2>
+@using UI.WebMvc.Helpers
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Plan</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Especialidad",
-               new {@class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IDEspecialidad,
-                    Model.Especialidades, new {@class = "form-control"})
-                @Html.ValidationMessageFor(model => model.IDEspecialidad,
-                     "", new {@class = "text-danger"})
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
+    <div class="container py-3">
+        <div class="row">
+            <div class="mx-auto col-sm-8">
+                <!-- form user info -->
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Nuevo Plan</h4>
+                    </div>
+                    <div class="card-body">
+                        @TextoHelper.TextoConLabel(nameof(Model.Descripcion), "Descripcion", "text")
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                        @ListaHelper.ListaElementos(Model.Especialidades, "IDEspecialidad", "Especialidades")
+                        @BtnAceptarCancelarHelper.BotonesAceptarCancelar()
+                    </div>
+                </div>
+                <!-- /form user info -->
             </div>
         </div>
     </div>
 }
-
 <div>
     @Html.ActionLink("Volver hacia atras", "Index")
 </div>

@@ -192,10 +192,14 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PlanesController.cs" />
     <Compile Include="Controllers\ProfesoresController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BtnAceptarCancelarHelper.cs" />
+    <Compile Include="Helpers\ListaHelper.cs" />
+    <Compile Include="Helpers\TextoHelper.cs" />
     <Compile Include="Models\ComisionesModel.cs" />
     <Compile Include="Models\CursoModel.cs" />
     <Compile Include="Models\Especialidad.cs" />
@@ -214,6 +218,7 @@
       <DependentUpon>ReportPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Util\ElementoLista.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -591,6 +596,7 @@
     <Content Include="Views\Inscripcion\InscribirAlumno.cshtml" />
     <Content Include="Views\Menu\Cursada.cshtml" />
     <Content Include="Views\Usuarios\Nuevo.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

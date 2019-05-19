@@ -9,6 +9,7 @@ namespace UI.WebMvc.Models
 {
     public class Plan
     {
+
         public Plan(Business.Entities.Plan plan)
         {
             this.ID = plan.ID;

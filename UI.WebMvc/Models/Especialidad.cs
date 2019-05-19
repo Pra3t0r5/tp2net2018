@@ -8,6 +8,11 @@ namespace UI.WebMvc.Models
 {
     public class Especialidad
     {
+        public Especialidad()
+        {
+
+        }
+
         public Especialidad(Business.Entities.Especialidad esp)
         {
             this.ID = esp.ID;

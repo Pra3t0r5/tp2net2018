@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UI.WebMvc.Models;
 
 namespace UI.WebMvc.Controllers
 {
@@ -38,11 +39,11 @@ namespace UI.WebMvc.Controllers
 
         // POST: Especialidades/Create
         [HttpPost]
-        public ActionResult Nuevo(FormCollection collection)
+        public ActionResult Nuevo(Especialidad model)
         {
             try
             {
-                var especialidad = this.MapEspecialidadToBussiness(collection,Business.Entities.BusinessEntity.States.New);
+                var especialidad = this.MapEspecialidadToBussiness(model,Business.Entities.BusinessEntity.States.New);
                 this.especialidadLogic.Save(especialidad);
                 return RedirectToAction("Index");
             }
@@ -62,11 +63,11 @@ namespace UI.WebMvc.Controllers
 
         // POST: Especialidades/Edit/5
         [HttpPost]
-        public ActionResult Editar(int id, FormCollection collection)
+        public ActionResult Editar(Especialidad model)
         {
             try
             {
-                var especialidad = this.MapEspecialidadToBussiness(collection, Business.Entities.BusinessEntity.States.Modified);
+                var especialidad = this.MapEspecialidadToBussiness(model,Business.Entities.BusinessEntity.States.Modified);
                 this.especialidadLogic.Save(especialidad);
                 return RedirectToAction("Index");
             }
@@ -92,12 +93,12 @@ namespace UI.WebMvc.Controllers
                 return RedirectToAction("Index");
         }
 
-        private Business.Entities.Especialidad MapEspecialidadToBussiness(FormCollection collection, Business.Entities.BusinessEntity.States estado)
+        private Business.Entities.Especialidad MapEspecialidadToBussiness(Especialidad esp,Business.Entities.BusinessEntity.States estado)
         {
             Business.Entities.Especialidad espb = new Business.Entities.Especialidad();
             if (estado == Business.Entities.BusinessEntity.States.Modified)
-                espb.ID = Convert.ToInt32(collection["ID"]);
-            espb.Descripcion = collection["Descripcion"].ToString();
+                espb.ID = Convert.ToInt32(esp.ID);
+            espb.Descripcion = esp.Descripcion;
             espb.State = estado;
             return espb;
         }

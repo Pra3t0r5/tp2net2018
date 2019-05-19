@@ -1,34 +1,24 @@
 ﻿@model UI.WebMvc.Models.Especialidad
 
-@{
-    ViewBag.Title = "Editar";
-
-}
-
-<h2>Editar</h2>
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Especialidad</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar cambios" class="btn btn-success" />
+    <div class="container py-3">
+        <div class="row">
+            <div class="mx-auto col-sm-8">
+                <!-- form user info -->
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Editar Especialidad</h4>
+                    </div>
+                    <div class="card-body">
+                        @TextoHelper.TextoConLabel(nameof(Model.Descripcion), "Descripcion", "text",Model.Descripcion)
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                        @BtnAceptarCancelarHelper.BotonesAceptarCancelar()
+                    </div>
+                </div>
+                <!-- /form user info -->
             </div>
         </div>
     </div>
