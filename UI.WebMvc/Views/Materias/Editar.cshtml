@@ -1,64 +1,37 @@
 ﻿@model UI.WebMvc.Models.MateriaModel
 
 @{
-    ViewBag.Title = "Editar";
-    
+                /**/
+
+                ViewBag.Title = "Editar";
+
 }
 
-<h2>Editar</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4 col-12">
-                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DescripcionPlan, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4 col-12">
-                @Html.EditorFor(model => model.DescripcionPlan, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DescripcionPlan, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HSSemanales, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4 col-12">
-                @Html.EditorFor(model => model.HSSemanales, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HSSemanales, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HSTotales, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4 col-12">
-                @Html.EditorFor(model => model.HSTotales, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HSTotales, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Planes", new { @class = "control-label col-md-2" })
-            <div class="col-md-4 col-12">
-                @Html.DropDownListFor(model => model.IDPlan, Model.Planes, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IDPlan, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10 col-12">
-                <input type="submit" value="Save" class="btn btn-info" />
+    <div class="container py-3">
+        <div class="row">
+            <div class="mx-auto col-sm-8">
+                <!-- form user info -->
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Editar Materia</h4>
+                    </div>
+                    <div class="card-body">
+                        @TextoHelper.TextoConLabel(nameof(Model.Descripcion), "Descripción", "text", Model.Descripcion)
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                        @TextoHelper.TextoConLabel(nameof(Model.HSSemanales), "Horas Semanales", "number", Model.HSSemanales.ToString())
+                        @Html.ValidationMessageFor(model => model.HSSemanales, "", new { @class = "text-danger" })
+                        @TextoHelper.TextoConLabel(nameof(Model.HSTotales), "Horas Totales", "number", Model.HSTotales.ToString())
+                        @Html.ValidationMessageFor(model => model.HSTotales, "", new { @class = "text-danger" })
+                        @ListaHelper.ListaElementos(Model.Planes, "IDPlan", "Plan")
+                        @BtnAceptarCancelarHelper.BotonesAceptarCancelar()
+                    </div>
+                </div>
+                <!-- /form user info -->
             </div>
         </div>
     </div>

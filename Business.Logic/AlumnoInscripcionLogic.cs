@@ -38,5 +38,10 @@ namespace Business.Logic
         {
             this.AlumnoInscripcionData.InsertAlumnoInscripcion(IDPersona, IDCurso);
         }
+
+        public int GetInscripcionesByMateria(int curso)
+        {
+            return this.AlumnoInscripcionData.GetInscripcionesByMateria(curso);
+        }
     }
 }

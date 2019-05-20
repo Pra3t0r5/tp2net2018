@@ -1,14 +1,7 @@
 ﻿@model IEnumerable<UI.WebMvc.Models.Especialidad>
 
 @{
-                /**/
-
-                /**/
-
-                /**/
-
                 ViewBag.Title = "Index";
-
 }
 
 @Html.AntiForgeryToken()
@@ -66,11 +59,6 @@
     </div>
 </div>
 
-
-
-
-
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
@@ -78,7 +66,9 @@
         $(document).ready(function () {
             $('#table').DataTable({
                 "language": {
-                    "search": "Buscar"
+                    "search": "Buscar",
+                    "lengthMenu": "Mostrando _MENU_ registros",
+                    "info": "Mostrando _START_ a _END_ of _TOTAL_ registros"
                 }
             })
         });

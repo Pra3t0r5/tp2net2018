@@ -195,8 +195,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdCurso = new SqlCommand("SELECT * FROM CURSOS C INNER JOIN materias m on m.id_materia = c.id_materia inner join comisiones co on c.id_comision = co.id_comision WHERE m.id_materia = @id and m.id_plan = @idplan " +
-                    "and cupo > (select COUNT(ai.id_curso) as 'cupo' from alumnos_inscripciones ai inner join cursos c on c.id_curso = ai.id_curso) and c.anio_calendario = YEAR(GETDATE())", SqlConn);
+                SqlCommand cmdCurso = new SqlCommand("SELECT * FROM CURSOS C INNER JOIN materias m on m.id_materia = c.id_materia inner join comisiones co on c.id_comision = co.id_comision WHERE m.id_materia = @id and m.id_plan = @idplan", SqlConn);
                 cmdCurso.Parameters.Add("@id", SqlDbType.Int).Value = idmateria;
                 cmdCurso.Parameters.Add("@idplan", SqlDbType.Int).Value = idplan;
                 SqlDataReader drCurso = cmdCurso.ExecuteReader();

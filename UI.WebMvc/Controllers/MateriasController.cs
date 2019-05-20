@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UI.WebMvc.Models;
 
 namespace UI.WebMvc.Controllers
 {
@@ -35,7 +36,7 @@ namespace UI.WebMvc.Controllers
 
         // POST: Materias/Create
         [HttpPost]
-        public ActionResult Nuevo(FormCollection collection)
+        public ActionResult Nuevo(MateriaModel collection)
         {
             try
             {
@@ -56,7 +57,7 @@ namespace UI.WebMvc.Controllers
 
         // POST: Materias/Edit/5
         [HttpPost]
-        public ActionResult Editar(int id, FormCollection collection)
+        public ActionResult Editar(int id, MateriaModel collection)
         {
             try
             {
@@ -131,16 +132,16 @@ namespace UI.WebMvc.Controllers
             return model;
         }
 
-        public Business.Entities.Materia MateriaToBusiness(FormCollection collection, Business.Entities.BusinessEntity.States estado)
+        public Business.Entities.Materia MateriaToBusiness(MateriaModel model, Business.Entities.BusinessEntity.States estado)
         {
             Business.Entities.Materia materia= new Business.Entities.Materia();
-            materia.Descripcion = collection["Descripcion"].ToString();
-            materia.HSSemanales = Convert.ToInt32(collection["HSSemanales"].ToString());
-            materia.HSTotales = Convert.ToInt32(collection["HSTotales"].ToString());
-            materia.IDPlan = Convert.ToInt32(collection["IDPlan"].ToString());
+            materia.Descripcion = model.Descripcion;
+            materia.HSSemanales = model.HSSemanales;
+            materia.HSTotales = model.HSTotales;
+            materia.IDPlan = model.IDPlan;
             materia.State = estado;
             if (estado == Business.Entities.BusinessEntity.States.Modified)
-                materia.ID = Convert.ToInt32(collection["ID"]);
+                materia.ID = model.ID;
             return materia;
         }
 

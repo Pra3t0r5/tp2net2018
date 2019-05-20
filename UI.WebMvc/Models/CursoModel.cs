@@ -38,6 +38,8 @@ namespace UI.WebMvc.Models
 
         public string DescripcionComision { get; set; }
 
+        public int CantInscripto { get; set; }
+
         public IList<SelectListItem> Comisiones { get; set; }
 
         public IList<SelectListItem> Materias { get; set; }

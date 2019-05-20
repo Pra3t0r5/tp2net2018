@@ -41,7 +41,9 @@ namespace UI.WebMvc.Controllers
             var modelList = new List<CursoModel>();
             foreach (var obj in this.CursoLogic.GetCursosByMateria(idmateria,idplan))
             {
-                modelList.Add(new CursoModel(obj));
+                CursoModel curso = new CursoModel(obj);
+                curso.CantInscripto = this.AlumnoInscripcionLogic.GetInscripcionesByMateria(obj.ID);
+                modelList.Add(curso);
             }
             return View(modelList);
         }

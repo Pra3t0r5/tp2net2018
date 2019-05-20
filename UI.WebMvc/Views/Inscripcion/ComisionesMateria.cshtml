@@ -17,14 +17,22 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DescripcionComision)
-                    </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionComision)
+                </td>
+                @if (item.Cupo != 0)
+                {
                     <td>
                         @Html.ActionLink("Seleccionar", "GenerarInscripcion", "Inscripcion", new { idcurso = item.ID }, new { @class = "btn btn-primary" })
                     </td>
-                </tr>
+                }
+                else
+                {
+                    <td class="text-danger">Sin Cupo</td>
+                }
+
+            </tr>
             }
         </tbody>
     </table>

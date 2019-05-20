@@ -166,6 +166,28 @@ namespace Data.Database
             }
         }
 
+        public int GetInscripcionesByMateria(int idcurso)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdInscripciones = new SqlCommand("select COUNT(ai.id_curso) as 'cupo' from alumnos_inscripciones ai inner join cursos c on c.id_curso = ai.id_curso) and c.anio_calendario = YEAR(GETDATE())");
+                SqlDataReader drCupo = cmdInscripciones.ExecuteReader();
+                var numero = (int)drCupo["cupo"];
+                drCupo.Close();
+                return numero;
+            }
+            catch(Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al traer datos de inscripciones", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
         public List<AlumnoInscripcion> GetAllInscripcionesDeAlumno()
         {
             List<AlumnoInscripcion> alumnoInscripcions = new List<AlumnoInscripcion>();
@@ -176,7 +198,7 @@ namespace Data.Database
                 "inner join personas p on p.id_persona = al.id_alumno " +
                 "inner join cursos c on c.id_curso = al.id_curso " +
                 "inner join materias mat on mat.id_materia = c.id_materia " +
-                "inner join comisiones com on com.id_comision = c.id_comision where c.cupo > 0", SqlConn);
+                "inner join comisiones com on com.id_comision = c.id_comision", SqlConn);
                 SqlDataReader drInscripciones = cmdInscripcion.ExecuteReader();
                 while (drInscripciones.Read())
                 {

@@ -15,7 +15,7 @@
                         <h4 class="mb-0">Nuevo Plan</h4>
                     </div>
                     <div class="card-body">
-                        @TextoHelper.TextoConLabel(nameof(Model.Descripcion), "Descripcion", "text")
+                        @TextoHelper.TextoConLabel(nameof(Model.Descripcion), "Descripcion", "text",Model.Descripcion)
                         @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                         @ListaHelper.ListaElementos(Model.Especialidades, "IDEspecialidad", "Especialidades")
                         @BtnAceptarCancelarHelper.BotonesAceptarCancelar()
