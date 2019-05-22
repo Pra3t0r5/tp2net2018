@@ -38,6 +38,11 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsModificacion = new System.Windows.Forms.ToolStripButton();
             this.tsEliminar = new System.Windows.Forms.ToolStripButton();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HSSemanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HorasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tscMaterias.ContentPanel.SuspendLayout();
             this.tscMaterias.TopToolStripPanel.SuspendLayout();
             this.tscMaterias.SuspendLayout();
@@ -85,6 +90,12 @@
             // 
             this.dgvMaterias.AllowUserToAddRows = false;
             this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Descripcion,
+            this.HSSemanales,
+            this.HorasTotales,
+            this.Plan});
             this.tblMaterias.SetColumnSpan(this.dgvMaterias, 2);
             this.dgvMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMaterias.Location = new System.Drawing.Point(3, 3);
@@ -155,6 +166,45 @@
             this.tsEliminar.Text = "toolStripButton3";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
             // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.Frozen = true;
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // HSSemanales
+            // 
+            this.HSSemanales.DataPropertyName = "HSSemanales";
+            this.HSSemanales.Frozen = true;
+            this.HSSemanales.HeaderText = "Horas semanales";
+            this.HSSemanales.Name = "HSSemanales";
+            this.HSSemanales.ReadOnly = true;
+            // 
+            // HorasTotales
+            // 
+            this.HorasTotales.DataPropertyName = "HSTotales";
+            this.HorasTotales.Frozen = true;
+            this.HorasTotales.HeaderText = "Horas totales";
+            this.HorasTotales.Name = "HorasTotales";
+            this.HorasTotales.ReadOnly = true;
+            // 
+            // Plan
+            // 
+            this.Plan.DataPropertyName = "DescripcionPlan";
+            this.Plan.Frozen = true;
+            this.Plan.HeaderText = "Plan";
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
+            // 
             // Materias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,5 +237,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton tsModificacion;
         private System.Windows.Forms.ToolStripButton tsEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HSSemanales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HorasTotales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
     }
 }

@@ -18,6 +18,7 @@ namespace UI.Desktop
         public Materias()
         {
             InitializeComponent();
+            this.dgvMaterias.AutoGenerateColumns = false;
             this.materiaLogic = new MateriaLogic();
             this.Listar();
         }
