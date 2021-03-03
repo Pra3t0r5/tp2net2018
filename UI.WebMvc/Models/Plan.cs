@@ -15,7 +15,7 @@ namespace UI.WebMvc.Models
             this.ID = plan.ID;
             this.Descripcion = plan.Descripcion;
             this.DescripcionEspecialidad = plan.DescripcionEspecialidad;
-            this.IDEspecialidad = plan.IDEspecialdad;
+            this.IDEspecialidad = plan.IDEspecialidad;
             this.Especialidades = new List<SelectListItem>();
         }
         

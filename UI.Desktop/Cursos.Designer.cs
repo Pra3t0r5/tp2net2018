@@ -32,11 +32,6 @@
             this.tsCursos = new System.Windows.Forms.ToolStripContainer();
             this.tblCursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionmateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcioncomision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -44,6 +39,11 @@
             this.btnModificar = new System.Windows.Forms.ToolStripButton();
             this.btnEliminar = new System.Windows.Forms.ToolStripButton();
             this.btnInforme = new System.Windows.Forms.ToolStripButton();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionmateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcioncomision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsCursos.ContentPanel.SuspendLayout();
             this.tsCursos.TopToolStripPanel.SuspendLayout();
             this.tsCursos.SuspendLayout();
@@ -106,46 +106,6 @@
             this.dgvCursos.TabIndex = 0;
             this.dgvCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellContentClick);
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.Frozen = true;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // descripcionmateria
-            // 
-            this.descripcionmateria.DataPropertyName = "DescripcionMateria";
-            this.descripcionmateria.Frozen = true;
-            this.descripcionmateria.HeaderText = "Materia";
-            this.descripcionmateria.Name = "descripcionmateria";
-            this.descripcionmateria.ReadOnly = true;
-            // 
-            // descripcioncomision
-            // 
-            this.descripcioncomision.DataPropertyName = "DescripcionComision";
-            this.descripcioncomision.Frozen = true;
-            this.descripcioncomision.HeaderText = "Comision";
-            this.descripcioncomision.Name = "descripcioncomision";
-            this.descripcioncomision.ReadOnly = true;
-            // 
-            // anio
-            // 
-            this.anio.DataPropertyName = "AnioCalendario";
-            this.anio.Frozen = true;
-            this.anio.HeaderText = "Año";
-            this.anio.Name = "anio";
-            this.anio.ReadOnly = true;
-            // 
-            // cupo
-            // 
-            this.cupo.DataPropertyName = "Cupo";
-            this.cupo.Frozen = true;
-            this.cupo.HeaderText = "Cupo";
-            this.cupo.Name = "cupo";
-            this.cupo.ReadOnly = true;
-            // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -177,7 +137,7 @@
             this.btnInforme});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(135, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(104, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // btnNuevo
@@ -220,6 +180,47 @@
             this.btnInforme.Text = "toolStripButton1";
             this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.Frozen = true;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // descripcionmateria
+            // 
+            this.descripcionmateria.DataPropertyName = "Materia";
+            this.descripcionmateria.Frozen = true;
+            this.descripcionmateria.HeaderText = "Materia";
+            this.descripcionmateria.Name = "descripcionmateria";
+            this.descripcionmateria.ReadOnly = true;
+            // 
+            // descripcioncomision
+            // 
+            this.descripcioncomision.DataPropertyName = "Comision";
+            this.descripcioncomision.Frozen = true;
+            this.descripcioncomision.HeaderText = "Comision";
+            this.descripcioncomision.Name = "descripcioncomision";
+            this.descripcioncomision.ReadOnly = true;
+            // 
+            // anio
+            // 
+            this.anio.DataPropertyName = "AnioCalendario";
+            this.anio.Frozen = true;
+            this.anio.HeaderText = "Año";
+            this.anio.Name = "anio";
+            this.anio.ReadOnly = true;
+            // 
+            // cupo
+            // 
+            this.cupo.DataPropertyName = "Cupo";
+            this.cupo.Frozen = true;
+            this.cupo.HeaderText = "Cupo";
+            this.cupo.Name = "cupo";
+            this.cupo.ReadOnly = true;
+            // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,11 +253,11 @@
         private System.Windows.Forms.ToolStripButton btnNuevo;
         private System.Windows.Forms.ToolStripButton btnModificar;
         private System.Windows.Forms.ToolStripButton btnEliminar;
+        private System.Windows.Forms.ToolStripButton btnInforme;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionmateria;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcioncomision;
         private System.Windows.Forms.DataGridViewTextBoxColumn anio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cupo;
-        private System.Windows.Forms.ToolStripButton btnInforme;
     }
 }

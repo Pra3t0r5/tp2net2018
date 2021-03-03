@@ -50,7 +50,7 @@ namespace UI.Desktop
         {
             txtID.Text = this.PlanActual.ID.ToString();
             txtDescripcion.Text = this.PlanActual.Descripcion;
-            cmbEspecialidad.SelectedItem = this.PlanActual.IDEspecialdad;
+            cmbEspecialidad.SelectedItem = this.PlanActual.IDEspecialidad;
 
             switch (Modo)
             {
@@ -79,7 +79,7 @@ namespace UI.Desktop
             if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
                 PlanActual.Descripcion = this.txtDescripcion.Text;
-                PlanActual.IDEspecialdad = (int)this.cmbEspecialidad.SelectedValue;
+                PlanActual.IDEspecialidad = (int)this.cmbEspecialidad.SelectedValue;
             }
             if (Modo == ModoForm.Modificacion)
             {

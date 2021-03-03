@@ -153,7 +153,7 @@ namespace UI.WebMvc.Controllers
         {
             Business.Entities.Plan plan = new Business.Entities.Plan();
             plan.Descripcion = planpar.Descripcion;
-            plan.IDEspecialdad = planpar.IDEspecialidad;
+            plan.IDEspecialidad = planpar.IDEspecialidad;
             plan.State = estado;
             if (estado == Business.Entities.BusinessEntity.States.Modified)
                 plan.ID = planpar.ID;

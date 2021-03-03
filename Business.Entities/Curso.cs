@@ -45,9 +45,9 @@ namespace Business.Entities
         }
 
         #region PropiedadesDeTablasExternas
-        public string DescripcionMateria { get; set; }
+        public string Materia { get; set; }
         
-        public string DescripcionComision { get; set; }
+        public string Comision { get; set; }
         #endregion
 
 

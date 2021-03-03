@@ -1,9 +1,10 @@
 ﻿using Business.Entities;
+using Data.Database.context;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Linq;
 
 namespace Data.Database
 {
@@ -11,57 +12,18 @@ namespace Data.Database
     {
         public List<Especialidad> GetAll()
         {
-            List<Especialidad> especialidades = new List<Especialidad>();
-            try
+            using (var context = new AcademiaContext())
             {
-                this.OpenConnection();
-                SqlCommand cmdEspecialidades = new SqlCommand("SELECT * FROM ESPECIALIDADES", SqlConn);
-                SqlDataReader drEspecialidades = cmdEspecialidades.ExecuteReader();
-                while (drEspecialidades.Read())
-                {
-                    Especialidad esp = new Especialidad();
-                    esp.ID = (int)drEspecialidades["id_especialidad"];
-                    esp.Descripcion = (string)drEspecialidades["desc_especialidad"];
-                    especialidades.Add(esp);
-                }
-                drEspecialidades.Close();
-                this.CloseConnection();
-                
+                return context.Database.SqlQuery<Especialidad>("EspecialidadGetAll").ToList();
             }
-            catch(Exception ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al recuperar las especialidades",ex);
-                throw ExcepcionManejada;
-            }
-            return especialidades;
         }
 
         public Especialidad GetOne(int ID)
         {
-            Especialidad esp = new Especialidad();
-            try
+            using (var context = new AcademiaContext())
             {
-                this.OpenConnection();
-                SqlCommand cmdEspecialidad = new SqlCommand("SELECT * FROM especialidades where id_especialidad = @id", SqlConn);
-                cmdEspecialidad.Parameters.Add("@id", SqlDbType.Int).Value = ID;
-                SqlDataReader drEspecialidad = cmdEspecialidad.ExecuteReader();
-                if (drEspecialidad.Read())
-                {
-                    esp.ID = (int)drEspecialidad["id_especialidad"];
-                    esp.Descripcion = (string)drEspecialidad["desc_especialidad"];
-                }
-                drEspecialidad.Close();
+                return context.Database.SqlQuery<Especialidad>($"EspecialidadGetOne @Id={ID}").FirstOrDefault();
             }
-            catch(Exception Ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error el traer la especialidad", Ex);
-                throw ExcepcionManejada;
-            }
-            finally
-            {
-                this.CloseConnection();
-            }
-            return esp;
         }
 
         public Especialidad GetOneFromPlan(int ID)
@@ -96,64 +58,28 @@ namespace Data.Database
 
         public void Delete(int ID)
         {
-            try
+            using (var context = new AcademiaContext())
             {
-                this.OpenConnection();
-                SqlCommand cmdEspecialidad = new SqlCommand("delete from especialidades where id_especialidad = @id", SqlConn);
-                cmdEspecialidad.Parameters.Add("@id", SqlDbType.Int).Value = ID;
-                cmdEspecialidad.ExecuteNonQuery();
-               
-            }
-            catch(Exception ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al borrar especialidad", ex);
-                throw ExcepcionManejada;
-                           
-            }
-            finally
-            {
-                this.CloseConnection();
+                var parametros = $"@Id={ID}";
+                context.Database.ExecuteSqlCommand($"EspecialidadDelete {parametros}");
             }
         }
 
         protected void Update(Especialidad esp)
         {
-            try
+            using (var context = new AcademiaContext())
             {
-                this.OpenConnection();
-                SqlCommand cmdEspecialidad = new SqlCommand("UPDATE especialidades set desc_especialidad = @descripcion where id_especialidad = @id", SqlConn);
-                cmdEspecialidad.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = esp.Descripcion;
-                cmdEspecialidad.Parameters.Add("@id", SqlDbType.Int).Value = esp.ID;
-                cmdEspecialidad.ExecuteNonQuery();
-            }
-            catch(Exception ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al actualizar la especialidad", ex);
-                throw ExcepcionManejada;
-            }
-            finally
-            {
-                this.CloseConnection();
+                var parametros = $"@Id={esp.ID}, @Descripcion='{esp.Descripcion}'";
+                context.Database.ExecuteSqlCommand($"EspecialidadUpdate {parametros}");
             }
         }
 
         protected void Insert(Especialidad esp)
         {
-            try
+            using (var context = new AcademiaContext())
             {
-                this.OpenConnection();
-                SqlCommand cmdEspecialidad = new SqlCommand("INSERT INTO especialidades (desc_especialidad) values (@descripcion)", SqlConn);
-                cmdEspecialidad.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = esp.Descripcion;
-                cmdEspecialidad.ExecuteNonQuery();
-            }
-            catch(Exception ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al agregar una nueva especialidad", ex);
-                throw ExcepcionManejada;
-            }
-            finally
-            {
-                this.CloseConnection();
+                var parametros = $"@Descripcion='{esp.Descripcion}'";
+                context.Database.ExecuteSqlCommand($"EspecialidadInsert {parametros}");
             }
         }
 

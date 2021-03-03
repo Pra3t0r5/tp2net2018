@@ -53,9 +53,9 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             this.txtId.Text = this.CursoActual.ID.ToString();
-            this.cmbMaterias.SelectedText = this.CursoActual.DescripcionMateria;
+            this.cmbMaterias.SelectedText = this.CursoActual.Materia;
             this.cmbMaterias.SelectedValue = this.CursoActual.IDMateria;
-            this.cmbComision.SelectedText = this.CursoActual.DescripcionComision;
+            this.cmbComision.SelectedText = this.CursoActual.Comision;
             this.cmbComision.SelectedValue = this.CursoActual.IDComision;
             this.nmdAnio.Value = this.CursoActual.AnioCalendario;
             this.nmdCupo.Value = this.CursoActual.Cupo;

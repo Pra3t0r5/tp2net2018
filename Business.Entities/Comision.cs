@@ -30,7 +30,7 @@ namespace Business.Entities
         }
 
         #region
-        public string DescripcionPlan { get; set; }
+        public string Plan { get; set; }
         #endregion
     }
 }

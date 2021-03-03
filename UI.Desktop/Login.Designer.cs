@@ -114,6 +114,8 @@
             this.Controls.Add(this.lblClave);
             this.Controls.Add(this.lblUsuario);
             this.Name = "Login";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
