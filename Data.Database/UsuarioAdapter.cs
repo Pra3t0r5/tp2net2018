@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using Business.Entities;
+using Data.Database.context;
 
 namespace Data.Database
 {
@@ -11,40 +13,9 @@ namespace Data.Database
     {
         public List<Usuario> GetAll()
         {
-            List<Usuario> usuarios = new List<Usuario>();
-            try
+            using (var context = new AcademiaContext())
             {
-                this.OpenConnection();
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM USUARIOS", SqlConn);
-                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
-                while (drUsuarios.Read())
-                {
-                    Usuario usr = new Usuario();
-                    usr.ID = (int)drUsuarios["id_usuario"];
-                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
-                    usr.Clave = (string)drUsuarios["clave"];
-                    usr.Habilitado = (bool)drUsuarios["habilitado"];
-                    usr.Nombre = (string)drUsuarios["nombre"];
-                    usr.Apellido = (string)drUsuarios["apellido"];
-                    if (drUsuarios["email"] != DBNull.Value) {
-                        usr.EMail = (string)drUsuarios["email"];
-                    } else
-                    {
-                        usr.EMail = null;
-                    }                    
-                    usuarios.Add(usr);
-                }
-                drUsuarios.Close();
-                return usuarios;
-            }
-            catch(Exception Ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
-                throw ExcepcionManejada;
-            }
-            finally
-            {
-                this.CloseConnection();
+                return context.Database.SqlQuery<Usuario>("UsuarioGetAll").ToList();
             }
             
         }

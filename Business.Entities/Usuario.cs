@@ -50,8 +50,10 @@ namespace Business.Entities
             set => _habilitado = value;
         }
 
+        public bool CambiaClave { get; set; }
+
         public int? IDPersona { get; set; }
 
-        public int TipoPersona { get; set; }
+        public string TipoPersona { get; set; }
     }
 }
