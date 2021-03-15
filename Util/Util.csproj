@@ -48,6 +48,7 @@
     <Compile Include="MetodosParaControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\EspecialidadValidator.cs" />
+    <Compile Include="Validators\PlanValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">

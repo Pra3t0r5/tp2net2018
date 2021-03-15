@@ -107,14 +107,17 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-            if (this.Validar())
+            try
             {
                 this.MapearADatos();
                 PlanLogic pl = new PlanLogic();
                 pl.Save(this.PlanActual);
                 this.Close();
             }
-           
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Error al guardar el plan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
