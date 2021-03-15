@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Data.Database;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Util;
+using Util.Validators;
 
 namespace Business.Logic
 {
@@ -14,11 +16,15 @@ namespace Business.Logic
     {
         private MetodosParaCombosBox combos { get; set; }
         private ComisionAdapter ComisionData { get; set; }
+        private ValidationResult ValidationResult { get; set; }
+        private ComisionValidator ComisionValidator { get; set; }
+        private string ErrorText { get; set; }
 
         public ComisionLogic()
         {
             this.combos = new MetodosParaCombosBox();
             this.ComisionData = new ComisionAdapter();
+            this.ComisionValidator = new ComisionValidator();
         }
 
         public List<Comision> GetAll()
@@ -33,16 +39,16 @@ namespace Business.Logic
 
         public void Save(Comision comi)
         {
-            //try
-            //{
-            this.ComisionData.Save(comi);
-            //}
-            //catch(Exception)
-            //{
-            //    Exception ErrorAlborrar = new Exception("Error al borrar comision, asegurese que los cursos relacionados al mismo este eliminados primero");
-            ////    throw ErrorAlborrar;
-            ////}
-
+            this.ValidationResult = this.ComisionValidator.Validate(comi);
+            if (this.ValidationResult.IsValid)
+            {
+                this.ComisionData.Save(comi);
+            }
+            else
+            {
+                this.ValidationResult.Errors.ToList().ForEach(x => this.ErrorText += $"{x.ErrorMessage}\n");
+                throw new Exception(this.ErrorText);
+            }
         }
 
         public void Delete(int ID)

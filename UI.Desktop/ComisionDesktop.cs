@@ -116,32 +116,27 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-            if (this.Validar())
+            try
             {
                 this.MapearADatos();
                 ComisionLogic cl = new ComisionLogic();
                 cl.Save(this.ComisionActual);
                 this.Close();
             }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Error al guardar comisiòn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-                this.GuardarCambios();
-            //}    
-            //catch(Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error al eliminar curso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            this.GuardarCambios();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-     
     }
 }
