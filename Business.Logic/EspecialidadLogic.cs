@@ -1,5 +1,7 @@
 ﻿using Business.Entities;
+using Business.Logic.Validators;
 using Data.Database;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,10 @@ namespace Business.Logic
 {
     public class EspecialidadLogic
     {   
+        private string ErrorText { get; set; }
+
+        private EspecialidadValidator EspecialidadValidator { get; set; }
+        private ValidationResult ValidationResult { get; set; }
         private MetodosParaCombosBox combos { get; set; }
         EspecialidadAdapter EspecialidadData { get; set; }
 
@@ -18,6 +24,7 @@ namespace Business.Logic
         {
             this.EspecialidadData = new EspecialidadAdapter();
             this.combos = new MetodosParaCombosBox();
+            this.EspecialidadValidator = new EspecialidadValidator();
         }
 
         public List<Especialidad> GetAllForCombo()
@@ -46,7 +53,16 @@ namespace Business.Logic
 
         public void Save(Especialidad esp)
         {
-            this.EspecialidadData.Save(esp);
+            this.ValidationResult = this.EspecialidadValidator.Validate(esp);
+            if (this.ValidationResult.IsValid)
+            {
+               this.EspecialidadData.Save(esp);
+            }
+            else
+            {
+               this.ValidationResult.Errors.ToList().ForEach(x => this.ErrorText += $"{x.ErrorMessage}\n");
+               throw new Exception(this.ErrorText);
+            }   
         }
 
         public void Delete(int ID)

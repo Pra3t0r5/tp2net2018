@@ -98,12 +98,16 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-            if(this.Validar())
+            try
             {
                 this.MapearADatos();
                 EspecialidadLogic el = new EspecialidadLogic();
                 el.Save(EspecialidadActual);
                 this.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error al guardar especialidad",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
