@@ -13,10 +13,11 @@ namespace Data.Database.context.Mappings
         public PlanMapping()
         {
             this.ToTable("planes");
-            this.HasKey(x => x.ID);
             this.Property(x => x.ID).HasColumnName("id_plan");
             this.Property(x => x.Descripcion).HasColumnName("desc_plan").IsRequired();
-            this.Property(x => x.IDEspecialidad).HasColumnName("id_especialida");
+            this.Property(x => x.IDEspecialidad).HasColumnName("id_especialidad");
+            this.HasRequired<Especialidad>(x => x.Especialidad).WithMany(y => y.Planes)
+                .HasForeignKey<int>(f => f.IDEspecialidad);
             this.Ignore(x => x.State);
         }
     }

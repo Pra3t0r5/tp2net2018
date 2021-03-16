@@ -23,6 +23,7 @@ namespace UI.Desktop
         public void Listar()
         {
             EspecialidadLogic el = new EspecialidadLogic();
+            var asd = el.GetAll();
             this.dgvEspecialidades.DataSource = el.GetAll();
         }
 

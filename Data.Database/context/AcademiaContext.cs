@@ -11,9 +11,19 @@ namespace Data.Database.context
 {
     public class AcademiaContext : DbContext
     {
+        public DbSet<Especialidad> Especialidades { get; set; }
+
+        public DbSet<Plan> Planes { get; set; }
+
         public AcademiaContext() : base("ConnStringLocal")
         {
-        
-        }        
+            
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new EspecialidadMapping());
+            modelBuilder.Configurations.Add(new PlanMapping());
+        }
     }
 }

@@ -102,7 +102,10 @@ namespace UI.Desktop
             {
                 this.MapearADatos();
                 EspecialidadLogic el = new EspecialidadLogic();
-                el.Save(EspecialidadActual);
+                if (this.EspecialidadActual.State != BusinessEntity.States.Deleted)
+                    el.Save(EspecialidadActual);
+                else
+                    el.Delete(EspecialidadActual.ID);
                 this.Close();
             }
             catch (Exception e)

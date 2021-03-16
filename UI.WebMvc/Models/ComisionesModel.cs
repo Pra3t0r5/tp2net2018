@@ -15,7 +15,7 @@ namespace UI.WebMvc.Models
             this.Descripcion = com.Descripcion;
             this.IDPlan = com.IDPlan;
             this.AnioEspecialidad = com.AnioEspecialidad;
-            this.DescripcionPlan = com.DescripcionPlan;
+            
         }
 
         public ComisionesModel() { }

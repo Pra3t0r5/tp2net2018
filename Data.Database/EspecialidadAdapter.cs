@@ -12,9 +12,9 @@ namespace Data.Database
     {
         public List<Especialidad> GetAll()
         {
-            using (var context = new AcademiaContext())
+            using(var context = new AcademiaContext())
             {
-                return context.Database.SqlQuery<Especialidad>("EspecialidadGetAll").ToList();
+                return context.Especialidades.Include("Planes").ToList();
             }
         }
 
@@ -22,7 +22,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Database.SqlQuery<Especialidad>($"EspecialidadGetOne @Id={ID}").FirstOrDefault();
+                return context.Especialidades.Include("Planes").FirstOrDefault(x => x.ID == ID);
             }
         }
 
@@ -60,8 +60,10 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                context.Database.ExecuteSqlCommand($"EspecialidadDelete {parametros}");
+                var especialidad = this.GetOne(ID);
+                context.Especialidades.Attach(especialidad);
+                context.Especialidades.Remove(especialidad);
+                context.SaveChanges();
             }
         }
 

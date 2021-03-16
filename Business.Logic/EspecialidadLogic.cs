@@ -8,14 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Util;
+using Util.Validators;
 
 namespace Business.Logic
 {
     public class EspecialidadLogic
-    {   
+    {
         private string ErrorText { get; set; }
-
         private EspecialidadValidator EspecialidadValidator { get; set; }
+        private EspecialidadDeleteValidator DeleteValidator {get; set;}
         private ValidationResult ValidationResult { get; set; }
         private MetodosParaCombosBox combos { get; set; }
         EspecialidadAdapter EspecialidadData { get; set; }
@@ -25,6 +26,7 @@ namespace Business.Logic
             this.EspecialidadData = new EspecialidadAdapter();
             this.combos = new MetodosParaCombosBox();
             this.EspecialidadValidator = new EspecialidadValidator();
+            this.DeleteValidator = new EspecialidadDeleteValidator();
         }
 
         public List<Especialidad> GetAllForCombo()
@@ -67,19 +69,18 @@ namespace Business.Logic
 
         public void Delete(int ID)
         {
-            try
+            var entity = this.GetOne(ID);
+            this.ValidationResult = this.DeleteValidator.Validate(this.GetOne(ID));
+            if (ValidationResult.IsValid)
             {
                 this.EspecialidadData.Delete(ID);
             }
-            
-            
-            catch (Exception ex)
+            else
             {
-                Exception ExcepcionManejada = new Exception("Error al borrar especialidad", ex);
-                throw ExcepcionManejada;
-
+                this.ValidationResult.Errors.ToList().ForEach(x => this.ErrorText += $"{x.ErrorMessage}\n");
+                throw new Exception(this.ErrorText);
             }
-        
+                 
         }
 
     }

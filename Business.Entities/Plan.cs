@@ -12,6 +12,8 @@ namespace Business.Entities
 
         public int IDEspecialidad { get; set; }
 
-        public string Especialidad { get; set; }
+        //public string Especialidad { get; set; }
+
+        public  Especialidad Especialidad { get; set; }
     }
 }

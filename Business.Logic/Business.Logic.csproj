@@ -66,7 +66,7 @@
       <Name>Data.Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\Util\Util.csproj">
-      <Project>{41DD6286-BF70-4F28-8CB3-F8F49146CAC3}</Project>
+      <Project>{41dd6286-bf70-4f28-8cb3-f8f49146cac3}</Project>
       <Name>Util</Name>
     </ProjectReference>
   </ItemGroup>
