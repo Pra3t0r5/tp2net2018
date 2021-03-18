@@ -71,8 +71,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={esp.ID}, @Descripcion='{esp.Descripcion}'";
-                context.Database.ExecuteSqlCommand($"EspecialidadUpdate {parametros}");
+                var especialidad = context.Especialidades.Find(esp.ID);
+                context.Entry(especialidad).CurrentValues.SetValues(esp);
+                context.SaveChanges();
             }
         }
 
@@ -80,8 +81,8 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Descripcion='{esp.Descripcion}'";
-                context.Database.ExecuteSqlCommand($"EspecialidadInsert {parametros}");
+                context.Especialidades.Add(esp);
+                context.SaveChanges();
             }
         }
 

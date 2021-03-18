@@ -12,9 +12,10 @@ namespace Data.Database.context
     public class AcademiaContext : DbContext
     {
         public DbSet<Especialidad> Especialidades { get; set; }
-
         public DbSet<Plan> Planes { get; set; }
-
+        public DbSet<Comision> Comisiones { get; set; }
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<Persona> Personas { get; set; }
         public AcademiaContext() : base("ConnStringLocal")
         {
             
@@ -24,6 +25,8 @@ namespace Data.Database.context
         {
             modelBuilder.Configurations.Add(new EspecialidadMapping());
             modelBuilder.Configurations.Add(new PlanMapping());
+            modelBuilder.Configurations.Add(new ComisionMapping());
+            modelBuilder.Configurations.Add(new CursoMapping());
         }
     }
 }

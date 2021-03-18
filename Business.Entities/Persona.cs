@@ -67,7 +67,11 @@ namespace Business.Entities
             set => _Telefono = value;
         }
 
-        public string DescripcionPlan { get; set; }
+        public virtual Plan Plan { get; set; }
+
+        public string DescripcionPlan => this.Plan.Descripcion;
+
+        public enum TipoPersonaEnum {Administrador = 0, Profesor = 1, Alumno = 2 };
         
 
     }

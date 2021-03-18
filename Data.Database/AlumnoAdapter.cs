@@ -16,8 +16,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = "@TipoPersona=2";
-                return context.Database.SqlQuery<Persona>($"PersonaGetAll {parametros}").ToList();
+                return context.Personas.Include("Plan").Where(x => x.TipoPersona == (int)Persona.TipoPersonaEnum.Alumno).ToList();
             }
 
         }
@@ -26,8 +25,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                return context.Database.SqlQuery<Persona>($"PersonaGetOne {parametros}").FirstOrDefault();
+                return context.Personas.Include("Plan").FirstOrDefault(x => x.ID == ID);
             }
         }
 
@@ -35,8 +33,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                context.Database.SqlQuery<Persona>($"PersonaDelete {parametros}").FirstOrDefault();
+                var alumno = context.Personas.Find(ID);
+                context.Personas.Remove(alumno);
+                context.SaveChanges();
             }
         }
 
@@ -44,9 +43,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={psr.ID},@Nombre='{psr.Nombre}', @Apellido='{psr.Apellido}', @Direccion='{psr.Direccion}'," +
-                    $"@FechaNacimiento={psr.FechaNacimiento}, @Email='{psr.Email}', @Telefono='{psr.Telefono}, @IdPlan={psr.IDPlan}' ";
-                context.Database.SqlQuery<Persona>($"PersonaUpdate {parametros}").FirstOrDefault();
+                var alumno = context.Personas.Find(psr.ID);
+                context.Entry(alumno).CurrentValues.SetValues(psr);
+                context.SaveChanges();
             }
         }
 
@@ -54,9 +53,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={psr.ID},@Nombre='{psr.Nombre}', @Apellido='{psr.Apellido}', @Direccion='{psr.Direccion}'," +
-                    $"@FechaNacimiento={psr.FechaNacimiento}, @Email='{psr.Email}', @Telefono='{psr.Telefono}, @IdPlan={psr.IDPlan}', @TipoPersona=2 ";
-                context.Database.SqlQuery<Persona>($"PersonaUpdate {parametros}").FirstOrDefault();
+                psr.TipoPersona = (int)Persona.TipoPersonaEnum.Alumno;
+                context.Personas.Add(psr);
+                context.SaveChanges();
             }
         }
 

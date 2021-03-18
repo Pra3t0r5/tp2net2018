@@ -15,7 +15,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Database.SqlQuery<Comision>("ComisionGetAll").ToList();
+                return context.Comisiones.Include("Plan").ToList();
             }
         }
 
@@ -24,8 +24,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                return context.Database.SqlQuery<Comision>($"ComisionGetOne {parametros}").FirstOrDefault();
+                return context.Comisiones.Include("Plan").FirstOrDefault(x => x.ID == ID);
             }
         }
 
@@ -33,8 +32,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                context.Database.ExecuteSqlCommand($"ComisionDelete {parametros}");
+                var comision = context.Comisiones.Find(ID);
+                context.Comisiones.Remove(comision);
+                context.SaveChanges();
             }
         }
 
@@ -42,8 +42,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={comi.ID}, @Descripcion='{comi.Descripcion}', @AnioEspecialidad={comi.AnioEspecialidad},@IdPlan={comi.IDPlan}";
-                context.Database.ExecuteSqlCommand($"ComisionUpdate {parametros}");
+                var comision = context.Comisiones.Find(comi.ID);
+                context.Entry(comision).CurrentValues.SetValues(comi);
+                context.SaveChanges();
             }
         }
 
@@ -51,8 +52,8 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Descripcion='{comi.Descripcion}', @AnioEspecialidad={comi.AnioEspecialidad},@IdPlan={comi.IDPlan}";
-                context.Database.ExecuteSqlCommand($"ComisionInsert {parametros}");
+                context.Comisiones.Add(comi);
+                context.SaveChanges();
             }
         }
 

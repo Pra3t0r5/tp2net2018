@@ -30,7 +30,9 @@ namespace Business.Entities
         }
 
         #region
-        public string Plan { get; set; }
+        public virtual Plan Plan { get; set; }
+
+        public string DescripcionPlan => this.Plan.Descripcion;
         #endregion
     }
 }

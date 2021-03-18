@@ -52,7 +52,7 @@ namespace UI.Desktop
             this.txtID.Text = this.ComisionActual.ID.ToString();
             this.txtDescripcion.Text = this.ComisionActual.Descripcion;
             this.numericUpDown1.Value = (decimal)this.ComisionActual.AnioEspecialidad;
-            this.cmbPlanes.SelectedItem = this.ComisionActual.IDPlan;
+            this.cmbPlanes.SelectedValue = this.ComisionActual.IDPlan;
             switch (Modo)
             {
                 case ModoForm.Alta:

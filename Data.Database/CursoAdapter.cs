@@ -16,7 +16,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Database.SqlQuery<Curso>("CursoGetAll").ToList();
+                return context.Cursos.Include("Materia").Include("Comision").ToList();
             }
         }
 
@@ -24,8 +24,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                return context.Database.SqlQuery<Curso>($"CursoGetOne {parametros}").FirstOrDefault();
+                return context.Cursos.Include("Materia").Include("Comision").FirstOrDefault(x => x.ID == ID);
             }
         }
 
@@ -61,8 +60,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                context.Database.ExecuteSqlCommand($"CursoDelete {parametros}");
+                var curso = context.Cursos.Find(ID);
+                context.Cursos.Remove(curso);
+                context.SaveChanges();
             }
         }
 
@@ -70,8 +70,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={cur.ID}, @IdComision={cur.IDComision}, @IdMateria={cur.IDMateria},@AnioCalendario={cur.AnioCalendario}, @Cupo={cur.Cupo}";
-                context.Database.ExecuteSqlCommand($"CursoUpdate {parametros}");
+                var curso = context.Cursos.Find(cur.ID);
+                context.Entry(curso).CurrentValues.SetValues(cur);
+                context.SaveChanges();
             }
         }
 
@@ -79,8 +80,8 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@IdComision={cur.IDComision}, @IdMateria={cur.IDMateria},@AnioCalendario={cur.AnioCalendario}, @Cupo={cur.Cupo}";
-                context.Database.ExecuteSqlCommand($"CursoInsert {parametros}");
+                context.Cursos.Add(cur);
+                context.SaveChanges();
             }
         }
 

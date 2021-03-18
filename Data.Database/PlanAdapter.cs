@@ -16,7 +16,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Database.SqlQuery<Plan>("PlanGetAll").ToList();
+                return context.Planes.Include("Especialidad").ToList();
             }
         }
 
@@ -24,8 +24,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                return context.Database.SqlQuery<Plan>($"PlanGetOne {parametros}").FirstOrDefault();
+                return context.Planes.Include("Especialidad").FirstOrDefault(x => x.ID == ID);
             }
         }
 
@@ -33,8 +32,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={ID}";
-                context.Database.ExecuteSqlCommand($"PlanDelete {parametros}");
+                var plan = context.Planes.Find(ID);
+                context.Planes.Remove(plan);
+                context.SaveChanges();
             }
         }
 
@@ -42,8 +42,9 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Id={plan.ID}, @Descripcion='{plan.Descripcion}', @IdEspecialidad={plan.IDEspecialidad}";
-                context.Database.ExecuteSqlCommand($"PlanUpdate {parametros}");
+                var planEntity = context.Planes.Find(plan.ID);
+                context.Entry(plan).CurrentValues.SetValues(plan);
+                context.SaveChanges();
             }
         }
 
@@ -51,8 +52,8 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var parametros = $"@Descripcion='{plan.Descripcion}', @IdEspecialidad={plan.IDEspecialidad}";
-                context.Database.ExecuteSqlCommand($"PlanInsert {parametros}");
+                context.Planes.Add(plan);
+                context.SaveChanges();
             }
         }
 

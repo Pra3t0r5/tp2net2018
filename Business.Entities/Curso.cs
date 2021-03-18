@@ -45,9 +45,13 @@ namespace Business.Entities
         }
 
         #region PropiedadesDeTablasExternas
-        public string Materia { get; set; }
+        public virtual Materia Materia { get; set; }
         
-        public string Comision { get; set; }
+        public virtual Comision Comision { get; set; }
+
+        public string DescripcionMateria => this.Materia.Descripcion;
+
+        public string DescripcionComision => this.Comision.Descripcion;
         #endregion
 
 

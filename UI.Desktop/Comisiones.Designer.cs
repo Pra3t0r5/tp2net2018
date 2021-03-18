@@ -195,7 +195,7 @@
             // 
             // plan
             // 
-            this.plan.DataPropertyName = "Plan";
+            this.plan.DataPropertyName = "DescripcionPlan";
             this.plan.Frozen = true;
             this.plan.HeaderText = "Plan";
             this.plan.Name = "plan";
