@@ -73,11 +73,15 @@
     <Compile Include="AlumnoInscripcionAdapter.cs" />
     <Compile Include="ComisionAdapter.cs" />
     <Compile Include="context\AcademiaContext.cs" />
+    <Compile Include="context\Mappings\AlumnoInscripcionMapping.cs" />
     <Compile Include="context\Mappings\ComisionMapping.cs" />
     <Compile Include="context\Mappings\CursoMapping.cs" />
+    <Compile Include="context\Mappings\DocenteCursoMapping.cs" />
     <Compile Include="context\Mappings\EspecialidadMapping.cs" />
+    <Compile Include="context\Mappings\MateriaMapping.cs" />
     <Compile Include="context\Mappings\PersonaMapping.cs" />
     <Compile Include="context\Mappings\PlanMapping.cs" />
+    <Compile Include="context\Mappings\UsuarioMapping.cs" />
     <Compile Include="CursoAdapter.cs" />
     <Compile Include="Data.ExceptionHandler.cs" />
     <Compile Include="EspecialidadAdapter.cs" />

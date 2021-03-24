@@ -38,6 +38,9 @@ namespace Business.Entities
             set => _Nota = value;
         }
 
+        public Persona Alumno { get; set; }
+
+        public Curso Curso { get; set; }
 
         #region PropiedadesDeTablasExteriores
         public string NombreAlumno { get; set; }

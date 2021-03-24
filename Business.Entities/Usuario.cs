@@ -54,6 +54,6 @@ namespace Business.Entities
 
         public int? IDPersona { get; set; }
 
-        public string TipoPersona { get; set; }
+        public Persona Persona { get; set; }
     }
 }

@@ -23,5 +23,11 @@ namespace Business.Entities
             get => _IDDocente;
             set => _IDDocente = value;
         }
+
+        public Persona Docente { get; set; }
+
+        public Curso Curso { get; set; }
+
+        public int Cargo { get; set; }
     }
 }
