@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Business.Entities;
+using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,22 +9,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Util.Filters;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI.Desktop
 {
     public partial class Especialidades : Form
     {
+        private List<Especialidad> EspecialidadesList { get; set; }
+
+        private EspecialidadLogic el = new EspecialidadLogic();
+
         public Especialidades()
         {
             InitializeComponent();
             this.dgvEspecialidades.AutoGenerateColumns = false;
+            this.EspecialidadesList = this.el.GetAll();
         }
 
 
         public void Listar()
         {
-            EspecialidadLogic el = new EspecialidadLogic();
-            var asd = el.GetAll();
+            
             this.dgvEspecialidades.DataSource = el.GetAll();
         }
 
@@ -73,6 +80,19 @@ namespace UI.Desktop
         private void Especialidades_Load(object sender, EventArgs e)
         {
             this.Listar();
+        }
+
+        private void tsBuscador_TextChanged(object sender, EventArgs e)
+        {
+            var filter = tsBuscador.Text.ToLower();
+            if (string.IsNullOrEmpty(tsBuscador.Text))
+            {
+                dgvEspecialidades.DataSource = this.EspecialidadesList;
+            }
+            else
+            {
+                dgvEspecialidades.DataSource = FilterDesktop.Filter(this.EspecialidadesList, filter);
+            }
         }
     }
 }

@@ -104,6 +104,17 @@ namespace Data.Database
 
         }
 
+        public List<Especialidad> EspecialidadFilter(object value)
+        {
+            using (var context = new AcademiaContext())
+            {
+                var stringProperties = typeof(Especialidad).GetProperties();
+                return context.Especialidades.Where(customer =>
+                stringProperties.Any(prop =>
+                prop.GetValue(customer, null).ToString() == value.ToString())).ToList();
+            }
+        }
+
 
         public List<Especialidad> GetAllByIdPlan(int idPlan)
         {

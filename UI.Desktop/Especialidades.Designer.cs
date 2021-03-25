@@ -34,12 +34,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsModificacion = new System.Windows.Forms.ToolStripButton();
             this.tsEliminar = new System.Windows.Forms.ToolStripButton();
+            this.tsBuscador = new System.Windows.Forms.ToolStripTextBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsAlumnos.ContentPanel.SuspendLayout();
             this.tsAlumnos.TopToolStripPanel.SuspendLayout();
             this.tsAlumnos.SuspendLayout();
@@ -122,32 +123,17 @@
             this.dgvEspecialidades.Size = new System.Drawing.Size(400, 390);
             this.dgvEspecialidades.TabIndex = 2;
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.Frozen = true;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "Descripcion";
-            this.descripcion.Frozen = true;
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsNuevo,
             this.tsModificacion,
-            this.tsEliminar});
+            this.tsEliminar,
+            this.tsBuscador});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(112, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(183, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // tsNuevo
@@ -179,6 +165,31 @@
             this.tsEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsEliminar.Text = "toolStripButton3";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
+            // 
+            // tsBuscador
+            // 
+            this.tsBuscador.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tsBuscador.Name = "tsBuscador";
+            this.tsBuscador.Size = new System.Drawing.Size(100, 25);
+            this.tsBuscador.TextChanged += new System.EventHandler(this.tsBuscador_TextChanged);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.Frozen = true;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "Descripcion";
+            this.descripcion.Frozen = true;
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Especialidades
             // 
@@ -213,6 +224,7 @@
         private System.Windows.Forms.ToolStripButton tsNuevo;
         private System.Windows.Forms.ToolStripButton tsModificacion;
         private System.Windows.Forms.ToolStripButton tsEliminar;
+        private System.Windows.Forms.ToolStripTextBox tsBuscador;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
     }

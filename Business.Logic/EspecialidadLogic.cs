@@ -53,6 +53,11 @@ namespace Business.Logic
             return this.EspecialidadData.GetAllByIdPlan(idPlan);
         }
 
+        public List<Especialidad> EspecialidadesFilter(object value)
+        {
+            return this.EspecialidadData.EspecialidadFilter(value);
+        }
+
         public void Save(Especialidad esp)
         {
             this.ValidationResult = this.EspecialidadValidator.Validate(esp);

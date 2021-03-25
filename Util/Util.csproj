@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constantes\TipoPersonaEnum.cs" />
+    <Compile Include="Filters\FilterDesktop.cs" />
     <Compile Include="MetodosParaCombosBox.cs" />
     <Compile Include="MetodosParaControls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
