@@ -57,7 +57,7 @@
             this.tblMaterias.ColumnCount = 3;
             this.tblMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.57895F));
             this.tblMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.42105F));
-            this.tblMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
+            this.tblMaterias.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tblMaterias.Controls.Add(this.lblId, 0, 0);
             this.tblMaterias.Controls.Add(this.lblDescripcion, 0, 1);
             this.tblMaterias.Controls.Add(this.lblHorasSemanales, 0, 2);
@@ -113,7 +113,7 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(92, 3);
+            this.txtId.Location = new System.Drawing.Point(91, 3);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 20);
@@ -121,21 +121,21 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(92, 32);
+            this.txtDescripcion.Location = new System.Drawing.Point(91, 32);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(187, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(186, 20);
             this.txtDescripcion.TabIndex = 5;
             // 
             // nudHsSemanales
             // 
-            this.nudHsSemanales.Location = new System.Drawing.Point(92, 58);
+            this.nudHsSemanales.Location = new System.Drawing.Point(91, 58);
             this.nudHsSemanales.Name = "nudHsSemanales";
             this.nudHsSemanales.Size = new System.Drawing.Size(79, 20);
             this.nudHsSemanales.TabIndex = 6;
             // 
             // nudHsTotales
             // 
-            this.nudHsTotales.Location = new System.Drawing.Point(92, 82);
+            this.nudHsTotales.Location = new System.Drawing.Point(91, 82);
             this.nudHsTotales.Name = "nudHsTotales";
             this.nudHsTotales.Size = new System.Drawing.Size(79, 20);
             this.nudHsTotales.TabIndex = 7;
@@ -161,16 +161,16 @@
             // cmbPlanes
             // 
             this.cmbPlanes.FormattingEnabled = true;
-            this.cmbPlanes.Location = new System.Drawing.Point(92, 108);
+            this.cmbPlanes.Location = new System.Drawing.Point(91, 108);
             this.cmbPlanes.Name = "cmbPlanes";
-            this.cmbPlanes.Size = new System.Drawing.Size(187, 21);
+            this.cmbPlanes.Size = new System.Drawing.Size(186, 21);
             this.cmbPlanes.TabIndex = 9;
             this.cmbPlanes.SelectedIndexChanged += new System.EventHandler(this.cmbPlanes_SelectedIndexChanged);
             // 
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(204, 133);
+            this.btnGuardar.Location = new System.Drawing.Point(202, 133);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 10;
@@ -180,7 +180,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(285, 133);
+            this.btnCancelar.Location = new System.Drawing.Point(283, 133);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
@@ -232,12 +232,12 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.NumericUpDown nudHsSemanales;
         private System.Windows.Forms.NumericUpDown nudHsTotales;
-        private System.Windows.Forms.Label lblPlanes;
-        private System.Windows.Forms.ComboBox cmbPlanes;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private tp2_netDataSet tp2_netDataSet;
         private System.Windows.Forms.BindingSource planesBindingSource;
         private tp2_netDataSetTableAdapters.planesTableAdapter planesTableAdapter;
+        private System.Windows.Forms.Label lblPlanes;
+        private System.Windows.Forms.ComboBox cmbPlanes;
     }
 }

@@ -16,7 +16,7 @@ namespace UI.Desktop
     public partial class MateriaDesktop : ApplicationForm
     {
         private MateriaLogic materiaLogic { get; set; }
-        private Materia MateriaActual { get; set; }
+        public Materia MateriaActual { get; set; }
         private MetodosParaControls metodosParaControls {get; set;}
 
         public MateriaDesktop()
@@ -30,6 +30,11 @@ namespace UI.Desktop
         public MateriaDesktop(ModoForm modo) : this()
         {
             Modo = modo;
+            if(Modo == ModoForm.Alta)
+            {
+                lblPlanes.Visible = false;
+                cmbPlanes.Visible = false;
+            }
         }
 
         public MateriaDesktop(int ID, ModoForm modo) : this()
@@ -77,9 +82,10 @@ namespace UI.Desktop
                 MateriaActual.Descripcion = txtDescripcion.Text;
                 MateriaActual.HSSemanales = Convert.ToInt32(nudHsSemanales.Value);
                 MateriaActual.HSTotales = Convert.ToInt32(nudHsTotales.Value);
-                MateriaActual.IDPlan = Convert.ToInt32(cmbPlanes.SelectedValue);
+                
                 if (Modo == ModoForm.Modificacion)
                 {
+                    MateriaActual.IDPlan = Convert.ToInt32(cmbPlanes.SelectedValue);
                     MateriaActual.ID = Convert.ToInt32(this.txtId.Text);
                 }
             }
@@ -110,7 +116,7 @@ namespace UI.Desktop
             if (this.Validar())
             {
                 this.MapearADatos();
-                this.materiaLogic.Save(MateriaActual);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
@@ -127,9 +133,6 @@ namespace UI.Desktop
 
         private void MateriaDesktop_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'tp2_netDataSet.planes' Puede moverla o quitarla según sea necesario.
-            this.planesTableAdapter.Fill(this.tp2_netDataSet.planes);
-
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

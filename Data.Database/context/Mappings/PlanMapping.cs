@@ -18,6 +18,7 @@ namespace Data.Database.context.Mappings
             this.Property(x => x.IDEspecialidad).HasColumnName("id_especialidad");
             this.HasRequired(x => x.Especialidad).WithMany(y => y.Planes)
                 .HasForeignKey(f => f.IDEspecialidad);
+            this.HasMany(x => x.Materias).WithRequired(x => x.Plan);
             this.Ignore(x => x.State);
         }
     }

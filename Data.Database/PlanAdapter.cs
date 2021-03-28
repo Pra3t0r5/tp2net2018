@@ -1,8 +1,11 @@
 ﻿using Business.Entities;
 using Data.Database.context;
+using RefactorThis.GraphDiff;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -16,7 +19,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Planes.Include("Especialidad").ToList();
+                return context.Planes.Include("Especialidad").Include("Materias").ToList();
             }
         }
 
@@ -24,7 +27,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                return context.Planes.Include("Especialidad").FirstOrDefault(x => x.ID == ID);
+                return context.Planes.Include("Especialidad").Include("Materias").FirstOrDefault(x => x.ID == ID);
             }
         }
 
@@ -42,8 +45,7 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
-                var planEntity = context.Planes.Find(plan.ID);
-                context.Entry(plan).CurrentValues.SetValues(plan);
+                context.UpdateGraph(plan,mapping => mapping.OwnedCollection(x => x.Materias));
                 context.SaveChanges();
             }
         }
@@ -52,6 +54,8 @@ namespace Data.Database
         {
             using (var context = new AcademiaContext())
             {
+               
+                plan.Materias.ForEach(x => x.IDPlan = plan.ID);
                 context.Planes.Add(plan);
                 context.SaveChanges();
             }
@@ -74,5 +78,5 @@ namespace Data.Database
             plan.State = BusinessEntity.States.Unmodified;
         }
 
+        }
     }
-}

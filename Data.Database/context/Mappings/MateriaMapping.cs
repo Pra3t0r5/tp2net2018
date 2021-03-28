@@ -13,6 +13,7 @@ namespace Data.Database.context.Mappings
         public MateriaMapping()
         {
             ToTable("materias");
+            HasKey(x => x.ID);
             Property(x => x.ID).HasColumnName("id_materia");
             Property(x => x.Descripcion).HasColumnName("desc_materia");
             Property(x => x.HSSemanales).HasColumnName("hs_semanales");

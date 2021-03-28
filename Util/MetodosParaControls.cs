@@ -80,11 +80,6 @@ namespace Util
                         
                         continue;
                         
-
-                    case "ComboBox":
-                        if (((ComboBox)control).Items.Count == 0) { this.Avisar(); return false; }
-                        else continue;
-
                     case "NumericUpDown":
                         if (((NumericUpDown)control).Value == 0) { this.AvisarNumericUpDownCero(); return false; }
                         else continue;

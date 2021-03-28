@@ -18,6 +18,7 @@ namespace Data.Database.context
         public DbSet<Persona> Personas { get; set; }
         public DbSet<DocenteCurso> DocenteCursos { get; set; }
         public DbSet<AlumnoInscripcion> AlumnoInscripciones { get; set; }
+        public DbSet<Materia> Materias { get; set; }
         public AcademiaContext() : base("ConnStringLocal")
         {
             
@@ -31,6 +32,7 @@ namespace Data.Database.context
             modelBuilder.Configurations.Add(new CursoMapping());
             modelBuilder.Configurations.Add(new AlumnoInscripcionMapping());
             modelBuilder.Configurations.Add(new DocenteCursoMapping());
+            modelBuilder.Configurations.Add(new MateriaMapping());
         }
     }
 }

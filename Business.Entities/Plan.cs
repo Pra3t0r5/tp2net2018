@@ -16,6 +16,8 @@ namespace Business.Entities
 
         public  Especialidad Especialidad { get; set; }
 
-        public ICollection<Materia> Materias { get; set; }
+        public string DescripcionEspecialidad => this.Especialidad.Descripcion;
+
+        public List<Materia> Materias { get; set; }
     }
 }

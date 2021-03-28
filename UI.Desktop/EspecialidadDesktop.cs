@@ -28,6 +28,11 @@ namespace UI.Desktop
         public EspecialidadDesktop(ModoForm modo) : this()
         {
             Modo = modo;
+            if(modo == ModoForm.Alta)
+            {
+                txtId.Visible = false;
+                lblID.Visible = false;
+            }
         }
 
         public EspecialidadDesktop(int ID, ModoForm modo) : this()
@@ -106,6 +111,7 @@ namespace UI.Desktop
                     el.Save(EspecialidadActual);
                 else
                     el.Delete(EspecialidadActual.ID);
+                MessageBox.Show("Se ha realizado la operaciòn existosamente", "Accion completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (Exception e)
@@ -121,7 +127,20 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            this.GuardarCambios();
+            DialogResult dr = DialogResult.None;
+            switch (Modo)
+            {
+                case ModoForm.Alta:
+                    break;
+                case ModoForm.Baja:
+                    dr = MessageBox.Show("¿Desea dar de baja la especialidad?", "Baja de especialidad", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    break;
+                case ModoForm.Modificacion:
+                    dr = MessageBox.Show("¿Desea guardar los cambios de la especialidad?", "Modificaciòn", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    break;
+            };
+            if(dr == DialogResult.Yes || dr == DialogResult.None)
+                this.GuardarCambios();
         }
     }
 }

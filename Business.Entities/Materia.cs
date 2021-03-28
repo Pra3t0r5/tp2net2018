@@ -39,6 +39,6 @@ namespace Business.Entities
 
         public Plan Plan { get; set; }
 
-        public string DescripcionPlan { get; set; }
+        public string DescripcionPlan => this.Plan != null ? this.Plan.Descripcion : string.Empty;
     }
 }

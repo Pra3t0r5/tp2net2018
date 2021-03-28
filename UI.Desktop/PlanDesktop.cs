@@ -22,6 +22,8 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.CargarCombos();
+            this.dgvMaterias.AutoGenerateColumns = false;
+            this.PlanActual = new Plan();
             this.metodoParaControles = new MetodosParaControls();
         }
 
@@ -51,7 +53,7 @@ namespace UI.Desktop
             txtID.Text = this.PlanActual.ID.ToString();
             txtDescripcion.Text = this.PlanActual.Descripcion;
             cmbEspecialidad.SelectedItem = this.PlanActual.IDEspecialidad;
-
+            this.dgvMaterias.DataSource = this.PlanActual.Materias.ToList();
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -71,11 +73,6 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
-            if (Modo == ModoForm.Alta)
-            {
-                Plan plan = new Plan();
-                this.PlanActual = plan;
-            }
             if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
                 PlanActual.Descripcion = this.txtDescripcion.Text;
@@ -128,6 +125,47 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAgregarMateria_Click(object sender, EventArgs e)
+        {
+            MateriaDesktop formMateria = new MateriaDesktop(ApplicationForm.ModoForm.Alta);
+            var result = formMateria.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                if(this.PlanActual.Materias == null)
+                    this.PlanActual.Materias = new List<Materia>();
+                this.PlanActual.Materias.Add(formMateria.MateriaActual);
+                this.dgvMaterias.DataSource = this.PlanActual.Materias;
+            }
+        }
+
+        private void btnQuitarMateria_Click(object sender, EventArgs e)
+        {
+            int? ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+            var materia = this.PlanActual.Materias.First(x => x.ID == ID);
+            materia.State = BusinessEntity.States.Deleted;
+            this.PlanActual.Materias.Remove(materia);
+            this.dgvMaterias.DataSource = this.PlanActual.Materias;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            MateriaDesktop formMateria = new MateriaDesktop(ApplicationForm.ModoForm.Modificacion);
+            var result = formMateria.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                if (this.PlanActual.Materias == null)
+                    this.PlanActual.Materias = new List<Materia>();
+                int index = this.PlanActual.Materias.IndexOf(this.PlanActual.Materias.Find(x => x.ID == formMateria.MateriaActual.ID));
+                this.PlanActual.Materias[index] = formMateria.MateriaActual;
+                this.dgvMaterias.DataSource = this.PlanActual.Materias;
+            }
         }
     }
 }

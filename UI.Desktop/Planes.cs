@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Business.Entities;
+using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,17 +14,20 @@ namespace UI.Desktop
 {
     public partial class Planes : Form
     {
+        private List<Plan> PlanesList { get; set; }
+        private PlanLogic pl => new PlanLogic();
         public Planes()
         {
             InitializeComponent();
             this.dgvPlanes.AutoGenerateColumns = false;
+            this.PlanesList = pl.GetAll();
             this.Listar();
+
         }
 
         public void Listar()
         {
-            PlanLogic pl = new PlanLogic();
-            dgvPlanes.DataSource = pl.GetAll();
+            dgvPlanes.DataSource = this.PlanesList;
         }
 
         private void tsNuevo_Click(object sender, EventArgs e)
@@ -71,6 +75,26 @@ namespace UI.Desktop
         {
             PlanLogic pl = new PlanLogic();
             dgvPlanes.DataSource = pl.GetAll().Select(x => x.Descripcion);
+        }
+
+        private void dgvMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvPlanes_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+        }
+
+        private void dgvPlanes_SelectionChanged(object sender, EventArgs e)
+        {
+            var dgv = sender as DataGridView;
+            if(dgv.SelectedRows.Count > 0)
+            {
+                int ID = ((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
+                dgvMaterias.DataSource = this.PlanesList.FirstOrDefault(x => x.ID == ID).Materias;
+                dgvMaterias.Refresh();
+            }
         }
     }
 }

@@ -41,6 +41,7 @@
             this.tsBuscador = new System.Windows.Forms.ToolStripTextBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tsBuscar = new System.Windows.Forms.ToolStripLabel();
             this.tsAlumnos.ContentPanel.SuspendLayout();
             this.tsAlumnos.TopToolStripPanel.SuspendLayout();
             this.tsAlumnos.SuspendLayout();
@@ -130,10 +131,11 @@
             this.tsNuevo,
             this.tsModificacion,
             this.tsEliminar,
+            this.tsBuscar,
             this.tsBuscador});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(183, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(225, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // tsNuevo
@@ -168,7 +170,6 @@
             // 
             // tsBuscador
             // 
-            this.tsBuscador.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tsBuscador.Name = "tsBuscador";
             this.tsBuscador.Size = new System.Drawing.Size(100, 25);
             this.tsBuscador.TextChanged += new System.EventHandler(this.tsBuscador_TextChanged);
@@ -190,6 +191,13 @@
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
             this.descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.descripcion.Width = 200;
+            // 
+            // tsBuscar
+            // 
+            this.tsBuscar.Name = "tsBuscar";
+            this.tsBuscar.Size = new System.Drawing.Size(42, 22);
+            this.tsBuscar.Text = "Buscar";
             // 
             // Especialidades
             // 
@@ -198,6 +206,7 @@
             this.ClientSize = new System.Drawing.Size(406, 450);
             this.Controls.Add(this.tsAlumnos);
             this.Name = "Especialidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especialidades";
             this.Load += new System.EventHandler(this.Especialidades_Load);
             this.tsAlumnos.ContentPanel.ResumeLayout(false);
@@ -227,5 +236,6 @@
         private System.Windows.Forms.ToolStripTextBox tsBuscador;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.ToolStripLabel tsBuscar;
     }
 }
